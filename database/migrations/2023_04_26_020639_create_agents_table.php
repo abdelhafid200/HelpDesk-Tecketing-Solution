@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('agents', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->tinyint('scope');
+            $table->tinyInteger('scope');
             $table->text('signature');
             $table->text('work');
             $table->timestamps();

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->int('size');
+            $table->integer('size');
             $table->string('name');
             $table->string('storage');
             $table->string('type');

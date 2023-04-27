@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
-            $table->tinyint('status');
+            $table->tinyInteger('status');
             $table->string('message');
             $table->foreignId('client_id')->constrained()->cascadeOnDelete();
             $table->foreignId('ticket_id')->constrained()->cascadeOnDelete();

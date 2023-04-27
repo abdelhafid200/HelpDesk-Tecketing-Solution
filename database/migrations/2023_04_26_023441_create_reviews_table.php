@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->boolean('is_helpful');
             $table->text('message');
-            $table->foreginId('client_id')->nullable()->constrained()->cascadeOnDelete();
-            $table->foreginId('article_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('client_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignId('article_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
