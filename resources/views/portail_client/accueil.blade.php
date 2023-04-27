@@ -17,7 +17,8 @@
 
         <div class="def">
             <div class="img_def">
-                <img src="trouble-ticketing-system.png" alt="" class="img_def1">
+                {{-- <img src="trouble-ticketing-system.png" alt="" class="img_def1"> --}}
+                <img src="{{ asset('images/trouble-ticketing-system.png') }}" alt="logo" class="img_def1">
             </div>
             <div class="txt_def">
                 <h1>C'est quoi un help desk</h1>
@@ -33,7 +34,8 @@
         <div class="equipe">
 
             <div class="equipe_img">
-                <img src="equipe1.png" alt="" class="image_equipe">
+                {{-- <img src="equipe1.png" alt="" class="image_equipe"> --}}
+                <img src="{{ asset('images/equipe1.png') }}" alt="equipe image" class="image_equipe">
             </div>
             <div class="equipe_travail">
                 <h1>Equipe de travail</h1>
@@ -54,7 +56,8 @@
 
             <div class="txts1">
                 <div class="para1">
-                    <img src="time.jpg" alt="" class="time">
+                    {{-- <img src="time.jpg" alt="" class="time"> --}}
+                    <img src="{{ asset('images/time.jpg') }}" alt="time image" class="time">
                     <h3 class="horaire">Horaire de travail</h3>
                     <p class="txt_time1">
                         &nbsp; &nbsp; &nbsp;    L'horaire de travail est un outil essentiel pour le service d'assistance qui permet de mieux
@@ -63,7 +66,8 @@
                     </p>
                 </div>
                 <div class="para2">
-                    <img src="helpticket.png" alt="" class="ticket">
+                    {{-- <img src="helpticket.png" alt="" class="ticket"> --}}
+                    <img src="{{ asset('images/helpticket.png') }}" alt="ticket image" class="ticket">
                     <h3 class="ticket_reste">Ticket</h3>
                     <p class="txt_ticket1">
                         &nbsp; &nbsp; &nbsp;   Lorsqu'un client rencontre un probl`eme avec un produit ou un service, il peut contacter
@@ -74,7 +78,8 @@
                     </p>
                 </div>
                 <div class="para3">
-                    <img src="base.jpg" alt="" class="book">
+                    {{-- <img src="base.jpg" alt="" class="book"> --}}
+                    <img src="{{ asset('images/base.jpg') }}" alt="book image" class="book">
                     <h3 class="connaissance">Base de connaissance</h3>
                     <p class="txt_book1">
                         &nbsp; &nbsp; &nbsp;    Pour réduire la charge de travail des agents de support et améliorer la satisfaction des

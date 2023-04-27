@@ -16,7 +16,7 @@
 
 /* header */
 
-@media screen and (min-width: 780px) {
+/* @media screen and (min-width: 780px) { */
     .navbar{
         display: grid;
         grid-template-columns: repeat(3,1fr);
@@ -116,14 +116,14 @@
     #submite_ticket:hover{
         background-color: black;
     }
-}
+/* } */
 
 
 
 
 
 
-@media screen and (max-width: 1000px) {
+ /* @media screen and (max-width: 1000px) {
     .navbar{
         display: flex;
         justify-content: space-between;
@@ -146,19 +146,12 @@
 
     }
     .titre1{
-        /* font-size: large; */
         padding-left: 39px;
         color: white;
         margin-right: 16px;
         margin-left: -44px;
         text-decoration: none;
     }
-    /* .logo1{
-        width: 70px;
-    }
-    .titre1{
-        font-size: medium;
-    } */
 
     #creer_compte{
         background-color: white;
@@ -172,7 +165,6 @@
     }
     #creer_compte:hover{
         background-color: #9b1616;
-        /* transition: 0.8s;     */
     }
     #identifier{
         background-color: #147ef1;
@@ -183,13 +175,11 @@
         padding: 7px 17PX;
     }
     #home{
-        /* background-color: #9d49b5 ; */
-        /* color: white; */
+
         margin-left: 4px;
         margin-right: 44px;
         color: black;
-        /* border-radius: 21px; */
-        /* padding: 9px 21PX; */
+
 
     }
     #home:hover{
@@ -199,9 +189,6 @@
         background-color: blue;
 
     }
-
-
-
     #creer_compte:hover{
         background-color: #ffffffc7 ;
 
@@ -229,7 +216,7 @@
         background-color: black;
     }
 
-}
+} */
 
 .sticky {
     position: fixed;

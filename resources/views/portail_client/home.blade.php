@@ -16,7 +16,8 @@
         <div class="accueil1">
                     <div class="browse">
                         <a href="" class="href">
-                                <div class=""><img src="helpticket.png" alt="light" class="brow_light"></div>
+                                {{-- <div class=""><img src="helpticket.png" alt="light" class="brow_light"></div> --}}
+                                <div class=""><img src="{{ asset('images/helpticket.png') }}" alt="light" class="brow_light"></div>
                                 <div>
                                     <h6>Browse articles</h6>
                                     <p>Explore how-To's and learn best practices from our knowledge base</p>
@@ -24,8 +25,9 @@
                         </a>
                     </div>
                     <div class="submit">
-                        <a href="" class="href">
-                                <div class=""><img src="helpticket.png" alt="" class="brow_light"></div>
+                        <a href="{{url('/new_ticket')}}" class="href">
+                                {{-- <div class=""><img src="helpticket.png" alt="" class="brow_light"></div> --}}
+                                <div class=""><img src="{{ asset('images/helpticket.png') }}" alt="image" class="brow_light"></div>
                                 <div>
                                     <h6>Submit a ticket</h6>
                                     <p>Describe your issue by filling up the support ticket form</p>
@@ -36,8 +38,9 @@
 
         <div class="accueil2">
             <div class="cherche_article">
-                <a href="page3_base.php" class="href">
-                    <div><img src="helpticket.png" alt="" class="brow_light"></div>
+                <a href="{{url('/knowldege_base')}}" class="href">
+                    {{-- <div><img src="helpticket.png" alt="" class="brow_light"></div> --}}
+                    <div><img src="{{ asset('images/helpticket.png') }}" alt="" class="brow_light"></div>
                     <div>
                         <h6>Base de connaissance</h6>
                         <p>Default solution category, feel free to edit or delete it.</p>

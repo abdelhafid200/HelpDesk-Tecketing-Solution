@@ -15,14 +15,13 @@ use App\Http\Controllers\StaticController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    
 });
 
-Route::get('accueil',[StaticController::class,'accueil'])->name("home.accueil");
+Route::get('/',[StaticController::class,'accueil'])->name("home.accueil");
 Route::get('home',[StaticController::class,'home'])->name("home.home");
 Route::get('knowldege_base',[StaticController::class,'knowldege'])->name("home.base");
 Route::get('new_ticket',[StaticController::class,'new_ticket'])->name("home.new_ticket");
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
