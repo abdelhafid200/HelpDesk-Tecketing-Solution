@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->foreignIdFor(Agent::class);
+            $table->foreignId('agent_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

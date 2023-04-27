@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->tinyint('status');
             $table->string('message');
-            $table->foreignIdFor(Client::class)->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Ticket::class)->constrained()->cascadeOnDelete();
+            $table->foreignId('client_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('ticket_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

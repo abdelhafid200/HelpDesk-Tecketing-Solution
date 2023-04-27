@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('group_members', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Group::class)->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Agent::class)->constrained()->cascadeOnDelete();
+            $table->foreignId('group_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('agent_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

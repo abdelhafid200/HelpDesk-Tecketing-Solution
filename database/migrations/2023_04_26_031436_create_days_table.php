@@ -16,7 +16,7 @@ return new class extends Migration
             $table->tinyint('day');
             $table->time('start');
             $table->time('end');
-            $table->foreignIdFor(Calendar::class)->constrained()->cascadeOnDelete();
+            $table->foreignId('calendar_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

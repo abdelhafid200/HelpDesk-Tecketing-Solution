@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->date('date');
-            $table->foreignIdFor(Calendar::class)->constrained()->cascadeOnDelete();
+            $table->foreignId('calendar_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

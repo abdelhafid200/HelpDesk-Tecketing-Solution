@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('storage');
             $table->string('type');
-            $table->foreignIdFor(Ticket::class)->constrained()->cascadeOnDelete();
+            $table->foreignId('ticket_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

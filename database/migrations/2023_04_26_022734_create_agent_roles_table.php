@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('agent_roles', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Role::class)->constrained()->restrictOnDelete();
-            $table->foreignIdFor(Agent::class)->constrained()->cascadeOnDelete();
+            $table->foreignId('role_id')->constrained()->restrictOnDelete();
+            $table->foreignId('agent_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

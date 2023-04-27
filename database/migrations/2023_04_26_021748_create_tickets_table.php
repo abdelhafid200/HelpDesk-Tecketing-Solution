@@ -20,9 +20,9 @@ return new class extends Migration
             $table->tinyint('status');
             $table->timestamp('resolution_date');
             $table->tinyint('section')->default(0);
-            $table->foreignIdFor(Client::class)->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Group::class)->nullable()->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Agent::class)->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignId('client_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('group_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignId('agent_id')->nullable()->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
