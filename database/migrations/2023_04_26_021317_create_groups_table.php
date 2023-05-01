@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->foreignId('agent_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('calendar_id')->constrained()->restrictOnDelete();
             $table->timestamps();
         });
     }

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->tinyInteger('scope');
             $table->text('signature');
             $table->text('work');
+            $table->foreignId('calendar_id')->constrained()->restrictOnDelete();
             $table->timestamps();
         });
     }

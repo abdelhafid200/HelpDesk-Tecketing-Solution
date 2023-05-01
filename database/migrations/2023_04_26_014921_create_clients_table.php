@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('adress');
             $table->text('description');
+            $table->boolean('is_blocked')->default(false);
             $table->timestamps();
         });
     }

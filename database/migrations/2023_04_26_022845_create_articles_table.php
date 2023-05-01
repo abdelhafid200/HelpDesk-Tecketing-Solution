@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->longtext('content');
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+            $table->boolean('is_published')->default(false);
             $table->timestamps();
         });
     }
