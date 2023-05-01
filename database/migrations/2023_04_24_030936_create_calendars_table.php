@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->boolean('is_personalised');
+            $table->boolean('is_default')->default(false);
             $table->timestamps();
         });
     }
