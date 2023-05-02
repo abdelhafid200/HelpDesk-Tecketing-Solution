@@ -1,0 +1,28 @@
+.sidebar {
+    background-color: #fdfdfd;
+    width: $sidebar-width;
+
+    .nav-link {
+        color: #363346;
+        padding-top: .325rem;
+        padding-bottom: .325rem;
+        
+        &:hover {
+            background-color: rgb(237 237 237 / 60%);
+        }
+        
+        &.active {
+            background-color: rgb(239 239 245 / 65%);
+            svg {
+                fill: rgba(var(--bs-link-color-rgb), .1);
+            }
+        }
+
+        svg {
+            fill: rgba(54, 51, 70, .1);
+            stroke: currentColor;        
+        }
+
+    }
+
+}

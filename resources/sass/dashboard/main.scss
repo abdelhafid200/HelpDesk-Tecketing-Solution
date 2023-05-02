@@ -1,0 +1,15 @@
+// Fonts
+@import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap';
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+// Import components
+@import 'components/index';
+
+main {
+    margin-left: $sidebar-width;
+}

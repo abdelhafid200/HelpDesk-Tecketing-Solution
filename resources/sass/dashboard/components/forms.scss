@@ -1,0 +1,23 @@
+.form-group > label {
+    font-size: map-get($map: $font-sizes, $key: 7);
+    color: $gray-600;
+    font-weight: 500;
+    position: absolute;
+    top: calc($input-padding-y);
+    left: $input-padding-x;
+}
+
+.form-group .form-control {
+    border-radius: 4px;
+    background-color: #f9f9f979;
+    padding-top: calc($input-padding-x + 10px);
+    &:focus {
+        border-color: $primary;
+        background-color: white;
+        box-shadow: 0 0 0 1px $primary;
+    }
+    &:focus + label {
+        color: $primary;
+    }
+}
+
