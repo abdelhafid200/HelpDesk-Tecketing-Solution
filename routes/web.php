@@ -17,28 +17,36 @@ use App\Http\Controllers\EmailController;
 |
 */
 
-Route::get('set-up', [ SetupController::class, 'create' ])->name('setup.create');
-Route::post('set-up', [ SetupController::class, 'store' ])->name('setup.store');
-
-
-Route::prefix('dashboard')->name('dashboard.')->group(function () {
-
-    Route::get('/', function () {
-        return view('dashboard.home.index');
-    })->name('index');
-    
-    
+/**
+ * Setup routes
+ * This is responsible for setting up the application by
+ * creating an admin user if no user exists.
+ */
+Route::prefix('set-up')->middleware('setup.done')->name('setup.')->group(function () {
+    Route::get('/', [ SetupController::class, 'create' ])->name('create');
+    Route::post('/', [ SetupController::class, 'store' ])->name('store');
 });
 
-// Verify email routes
-Route::prefix('email')->name('verification.')->group(function () {
-    Route::get('verify/{id}/{hash}', [ EmailController::class, 'verify' ])->name('verify');
-    Route::get('resend-verification', [ EmailController::class, 'resend' ])->name('send');
-});
+Route::middleware('setup.need')->group(function () {
 
-Route::get('/',[StaticController::class,'accueil'])->name("home.accueil");
-Route::get('home',[StaticController::class,'home'])->name("home.home");
-Route::get('knowldege_base',[StaticController::class,'knowldege'])->name("home.base");
-Route::get('new_ticket',[StaticController::class,'new_ticket'])->name("home.new_ticket");
+    Route::prefix('dashboard')->name('dashboard.')->group(function () {
+
+        Route::get('/', function () { return view('dashboard.home.index'); })->name('index');
+        
+    });
+    
+    // Verify email routes
+    Route::prefix('email')->name('verification.')->group(function () {
+        Route::get('verify/{id}/{hash}', [ EmailController::class, 'verify' ])->name('verify');
+        Route::get('resend-verification', [ EmailController::class, 'resend' ])->name('send');
+    });
+    
+    Route::get('/',[StaticController::class,'accueil'])->name("home.accueil");
+    Route::get('home',[StaticController::class,'home'])->name("home.home");
+    Route::get('knowldege_base',[StaticController::class,'knowldege'])->name("home.base");
+    Route::get('new_ticket',[StaticController::class,'new_ticket'])->name("home.new_ticket");
+    
+
+});
 
 
