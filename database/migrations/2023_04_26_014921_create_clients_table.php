@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('adress');
-            $table->text('description');
+            $table->string('adress')->nullable();
+            $table->text('description')->nullable();
             $table->boolean('is_blocked')->default(false);
             $table->timestamps();
         });

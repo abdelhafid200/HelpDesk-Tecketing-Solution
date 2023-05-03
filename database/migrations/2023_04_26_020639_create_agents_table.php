@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->tinyInteger('scope');
-            $table->text('signature');
+            $table->text('signature')->nullable();
             $table->text('work');
             $table->foreignId('calendar_id')->constrained()->restrictOnDelete();
             $table->timestamps();

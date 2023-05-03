@@ -71,7 +71,7 @@
                     @enderror
                 </div>
                 <input type="hidden" name="scope" value="0">
-                <input type="hidden" name="calendar" value="3">
+                <input type="hidden" name="calendar" value="{{ \App\Models\Calendar::first()->id }}">
                 <div class="d-grid mb-5">
                     <button type="submit" class="btn btn-primary fw-medium py-2 fs-5 px-4 rounded-3">Créer compte</button>
                 </div>

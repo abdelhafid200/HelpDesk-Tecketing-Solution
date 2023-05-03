@@ -4,7 +4,6 @@
 } */
 .body{
     background-color: #f5f7f9;
-    font-size: 12px;
 }
 
 
@@ -33,7 +32,7 @@
         width: 104px;
         padding-left: 17px;
         margin-left: 17px;
-        margin-top: -5px;
+        margin-top: -4Px;
 
     }
     .titre1{
@@ -747,4 +746,121 @@ width: 35px;
 #formFileMultiple3{
     width: 638px;
 
+}
+
+/* login */
+.connect_submite{
+    background-color:#147ef1;
+    position: relative;
+    align-items: center;
+}
+.img_log{
+    grid-area: image_login;
+    margin-top: 120px;
+}
+.image_login{
+    width: 467PX;
+    margin-left: -109px;
+    margin-top: -49px;
+
+}
+.email_image{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-areas: "email email email email email email . image_login image_login image_login image_login image_login";
+}
+.navbar2{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    background-color: white;
+    height: 84px;
+    margin-top: -13px;
+    margin-right: -12px;
+    margin-left: -10px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 5px #e2e2e2;
+    z-index: 999;
+}
+.logo2{
+    width: 104px;
+    padding-left: 17px;
+    margin-left: 17px;
+    margin-top: 5Px;
+
+}
+
+.title{
+    margin-bottom: -2px;
+    margin-top: 19px;
+    margin-left: 39px;
+    color: blue;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+#style{
+    background-color: #108a00;
+    color: white;
+}
+
+.ligne {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    line-height: .1em;
+    font-weight: 300;
+}
+.ligne span{
+    padding: 0 10px;
+    background: white;
+    color: #606060;
+}
+.sign_up{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-areas:
+    "email email email email email email . image_login image_login image_login image_login image_login";
+    width: 1020PX;
+    background-color: white;
+    margin: 20px auto;
+    border: 0.5px solid black;
+    border-radius: 10px;
+}
+.img_sign{
+
+}
+
+#mg{
+    margin-top: 4px;
+    margin-bottom: 12px;
+}
+#deja_compte{
+    display: flex;
+    justify-content: center;
+}
+button a{
+    text-decoration: none;
+    color: white;
+}
+button a:hover{
+    text-decoration: none;
+    color: white;
+}
+.body_sign{
+    background-color: white;
+}
+#si_up{
+    background-color: #2222ffc4;;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    border-radius: 13px;
+}
+#si_up:hover{
+    background-color: blue;
+}
+#si_up a {
+    color: white;
+    text-decoration: none;
 }

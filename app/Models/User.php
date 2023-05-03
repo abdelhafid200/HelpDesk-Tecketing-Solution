@@ -50,4 +50,22 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
     public function getFullNameAttribute() {
         return $this->first_name . ' ' . $this->last_name;
     }
+
+    /**
+     * Get the client associated with the users
+     * 
+     */
+    public function client()
+    {
+        return $this->hasOne(Client::class);
+    }
+    
+    /**
+     * Get the agent associated with the users
+     * 
+     */
+    public function agent()
+    {
+        return $this->hasOne(Agent::class);
+    }
 }

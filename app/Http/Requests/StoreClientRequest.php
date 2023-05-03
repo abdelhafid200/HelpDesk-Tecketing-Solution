@@ -11,7 +11,7 @@ class StoreClientRequest extends StoreUserRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,7 +21,7 @@ class StoreClientRequest extends StoreUserRequest
      */
     public function rules(): array
     {
-        collect(parent::rules())->merge([
+        return collect(parent::rules())->merge([
             // Rules here
         ])->all();
     }
