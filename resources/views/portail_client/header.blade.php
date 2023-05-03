@@ -12,7 +12,7 @@
     <script src="https://cdn.tiny.cloud/1/t6xa714v755aswmvia48nmkwtfmqjmhf27eme42iukkkjx44/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    @vite(['resources/css/style1.css', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
 
 
