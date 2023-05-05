@@ -16,6 +16,7 @@ class RoleSeeder extends Seeder
         DB::table('roles')->insert([
             'name' => 'Super Administrateur',
             'description' => 'Agent ayant le niveau le plus élevé de privilèges d\'administration',
+            'is_touchable' => false,
             'created_at' => now(),
             'updated_at' => now()
         ]);

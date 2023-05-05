@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model
 {
     use HasFactory;
+
+    /**
+     * Get role associeted permissions id and codes
+     */
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class, RolePermission::class);
+    }
+
 }
