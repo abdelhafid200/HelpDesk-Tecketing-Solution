@@ -7,16 +7,16 @@ use Illuminate\Http\Request;
 class StaticController extends Controller
 {
     public function accueil(){
-        return view('portail_client/accueil');
+        return view('public.accueil');
     }
     public function home(){
-        return view('portail_client/home');
+        return view('public.home');
     }
     public function knowldege(){
-        return view('portail_client/knowldege_base');
+        return view('public.knowldege_base');
     }
     public function new_ticket(){
-        return view('portail_client/new_ticket');
+        return view('public.new_ticket');
     }
 
 }

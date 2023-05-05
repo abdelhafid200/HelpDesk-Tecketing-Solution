@@ -5,6 +5,7 @@ use App\Http\Controllers\StaticController;
 use App\Http\Controllers\SetupController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CalendarController;
 
 
 /*
@@ -51,7 +52,7 @@ Route::middleware('setup.need')->group(function () {
     });
 
     /**
-     * This routes are responsable for user email confirmations 
+     * This routes are responsable for user email confirmations
      */
     Route::prefix('email')->middleware('auth')->name('verification.')->group(function () {
         Route::get('verify/{id}/{hash}', [ EmailController::class, 'verify' ])->name('verify');
@@ -59,20 +60,49 @@ Route::middleware('setup.need')->group(function () {
     });
 
     /**
-     * 
-     * 
+     *
+     *
      */
     Route::prefix('dashboard')->name('dashboard.')->group(function () {
 
         Route::get('/', function () { return view('dashboard.home.index'); })->name('index');
-        
+
     });
-    
+
+
+    /**
+     *    les routes de l'horaire
+     *
+     */
+
+    Route::get('/calendar',[CalendarController::class,'calendar'])->name("calendar");
+    Route::get('/newCalendar',[CalendarController::class,'newCalendar'])->name("newCalendar");
+    Route::get('calendar/edit/{id}', [ CalendarController::class,'edit']);
+    Route::put('/calendar/{id}',[ CalendarController::class,'update'])->name('update');
+
+
+        // consulter les horaires
+    Route::get('/consulter/{id}',[ CalendarController::class,'consulter'])->name('consulter');
+
+
+    Route::delete('/calendar/{id}', [ CalendarController::class,'destroy'])->name('calendar.destroy');
+
+
+    Route::post('/newCalendar/store1',[CalendarController::class,'store1'])->name("store1");
+    Route::get('/newCalendar/store2',[CalendarController::class,'store2'])->name("store2");
+
+    Route::get('/test',[CalendarController::class,'testHoraire'])->name("test");
+
+    /**
+     *
+     *
+     */
+
     Route::get('/',[StaticController::class,'accueil'])->name("home.accueil");
     Route::get('home',[StaticController::class,'home'])->name("home.home");
     Route::get('knowldege_base',[StaticController::class,'knowldege'])->name("home.base");
     Route::get('new_ticket',[StaticController::class,'new_ticket'])->name("home.new_ticket");
-    
+
 
 });
 

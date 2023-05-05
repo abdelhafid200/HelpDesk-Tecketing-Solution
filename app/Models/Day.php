@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Day extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'schedule'
+    ];
+
+    public function calendar(){
+        return $this->belongsTo(Calendar::class);
+}
 }

@@ -1,4 +1,4 @@
-@include('portail_client.header')
+@include('public.header')
 
 
             <div class="solution">

@@ -1,6 +1,6 @@
 <div class="">
 
-    @include('portail_client.header')
+    @include('public.header')
 
         <div class="bare_search" id="">
             <h1>Bonjour, Comment pouvons-nous vous aider</h1>

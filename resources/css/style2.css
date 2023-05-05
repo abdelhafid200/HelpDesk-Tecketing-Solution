@@ -1,0 +1,438 @@
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin-right: 10px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #000;
+}
+
+.horaire{
+    width: 879px;
+    background-color: white;
+    margin: 12PX auto;
+    padding-bottom: 49px;
+
+}
+
+.add_hours{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-areas: "title title title title title . . . button button button button";
+
+}
+
+.title_hours{
+    grid-area: title;
+    font-family: bold;
+    color: #12344d;
+    font-size: 30PX;
+    font-weight: 700;
+    margin-bottom: 8px;
+    margin-top: 40px;
+    margin-left: 26px;
+}
+.title_hours h1{
+
+    font-size: 26PX;
+    font-weight: 700;
+}
+.button_hours{
+    grid-area: button;
+    background-color: #12344dd1;
+    padding: 12px 12px;
+    margin-bottom: 23px;
+    margin-top: 40px;
+    margin-right: 26px;
+    border-radius: 41px;
+    width: 85%;
+}
+.button_hours:hover{
+    background-color: #12344d;
+    color: white;
+}
+.button_hours a {
+    text-decoration: none;
+    color: white;
+}
+.button_hours a:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.new_calendar{
+    width: 800px;
+    background-color: white;
+    margin: 12PX auto;
+    padding-bottom: 22px;
+}
+.calendar_name{
+    margin-left: 38px;
+    margin-bottom: 37px;
+}
+.calendar_name div{
+    margin-top: 15px;
+}
+
+.option_select div{
+    margin-left: 37px;
+    margin-bottom: 19px;
+    margin-top: 30px;
+}
+.option_select div label{
+    font-size: 15px;
+    font-weight: 700;
+    color: #12344d;
+}
+
+.day_number{
+    display: flex;
+    margin-top: 18px;
+}
+.to{
+    margin-left: -56px;
+    margin-right: 32px;
+
+}
+#content1{
+    margin-left: 90px;
+}
+.mar_lun{
+    margin-right: 106px;
+    margin-left: 14px;
+}
+#content01, #content02, #content4, #content5, #content6, #content7, #content3{
+    display: block;
+    margin-bottom: 20px;
+    margin-right: -60px;
+}
+/*  */
+.plaise{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 26px;
+    margin-bottom: 26px;
+}
+.plaise div{
+    margin-left: 24px;
+}
+.ouverture{
+    font-size: 14px;
+    color: #12344d;
+    font-weight: 600;
+    margin-top: 40px;
+    margin-left: 38px;
+    margin-bottom: 38px;
+}
+.all{
+}
+.select_hous{
+    margin-left: 65px;
+}
+#add_fete a{
+    text-decoration: none;
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    border-radius: 4px;
+    margin-right: 10px;
+    border: 1px solid #cfd7df;
+    background-image: linear-gradient(to bottom,#fff,#f3f5f7);
+}
+#add_fete a:hover{
+
+    border: 1px solid #cfd7df15;
+    background-image: linear-gradient(to bottom,#33333845,#f3f5f710);
+
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 45%;
+    Width: 600PX !important;
+    height: 355px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+#cancel_add{
+    display: flex;
+    margin-top: 50px;
+    position: static;
+    justify-content: flex-end;
+    background-color: #eee;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    margin-left: -20px;
+    margin-right: -20px;
+    border-radius: 7px;
+}
+#cancel_add div{
+    margin-bottom: 12px;
+    display: contents;
+}
+#cancel{
+
+    margin-left: 12px;
+    font-size: 14px;
+    padding: 4px 15px 5px;
+    border: none;
+    border-radius: 4px;
+    outline: 0;
+    color: #183247;
+    min-width: 80px;
+    -webkit-font-smoothing: antialiased;
+    background-color: #ddd;
+    margin-right: 12px;
+}
+.add{
+    margin-left: 12px;
+    font-size: 14px;
+    padding: 4px 15px 5px;
+    border: none;
+    border-radius: 4px;
+    outline: 0;
+    color: #fff;
+    min-width: 80px;
+    -webkit-font-smoothing: antialiased;
+    background-color: #12344d;
+    margin-right: 12px;
+}
+#date_name{
+    margin-top: 20px;
+}
+#fete_name{
+    margin-top: 30px;
+}
+
+.name_casablanca{
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-left: 60px;
+    margin-right: 60px;
+    background-color: #fff;
+    box-shadow: 0 0 1px 0 rgba(24,50,71,.3), 0 2px 6px 0 rgba(22,29,37,.05);
+    border-radius: 4px;
+    border: 2px solid transparent;
+    display: flex;
+    justify-content: space-between;
+}
+.href_casa{
+    text-decoration: none;
+}
+.name_calendar{
+    color:#183247 ;
+    font-size: 18px;
+    margin-left: 32px;
+    margin-top: 7px;
+}
+.Casablanca{
+    margin-left: 32px;
+    margin-top: 7px;
+    font-size: 12px;
+    color: gray;
+}
+#message{
+
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: large;
+}
+.btn-delete{
+    background-color: white;
+    border: none  ;
+    margin-top: 10px;
+
+}
+.btn-edit a svg{
+    background-color: white;
+    color: black;
+}
+.btn-edit a{
+    text-decoration: none;
+    color: black;
+    margin-left: 3px;
+
+}
+.btn-edit a:hover{
+    text-decoration: none;
+    color: black;
+}
+.icon-container {
+    display: inline-block;
+}
+.icon {
+    width: 24px;
+    height: 24px;
+    fill: #000;
+    /* Autres styles personnalisés */
+}
+.btn-btn{
+    margin-left: 74px;
+}
+.ligne_bbb{
+    margin-left: 41px;
+    margin-right: 39PX;
+    margin-top: 41px;
+}
+.table-striped{
+
+    WIDTH: 90%!important;
+    margin-left: 42px;
+    margin-top: 47px;
+    border: 0.2PX solid #eeeeee38;
+}
+.table-striped:hover{
+    background-color: white;
+}
+tr.col{
+    height: 50px;
+}
+tr.col td{
+
+    align-items: center;
+}
+#table_consult{
+    width: 88% !important;
+    margin-left: 56PX;
+    margin-top: 15px;
+}
+.consulter{
+    margin: 20PX auto;
+    background-color: white;
+    width: 900px;
+}
+.consult_calendrier{
+
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-areas: " cal cal cal . . . . btn btn btn btn btn";
+}
+
+.edit-supp{
+    grid-area: btn;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-edit-consulte a:hover{
+    text-decoration: none;
+    color: white !important;
+}
+.btn-edit-consulte:hover{
+    background-color: blue;
+}
+.btn-edit-consulte a{
+    text-decoration: none;
+    color: white !important;
+}
+.btn-edit-consulte{
+
+    background-color: #0d6efd;
+    margin-top: 51PX;
+    margin-bottom: 53px;
+    border-radius: 8PX;
+    margin-left: 120px;
+    padding: 10px 16px 0px 10px;
+}
+.btn-supp-consulte{
+    margin-top: 52px;
+}
+
+
+.calendrier-svg{
+    grid-area: cal;
+}
+
+.consult_calendrier div h3 {
+    font-size: 25px;
+    font-weight: 700;
+    color: #12344d;
+    padding-left: 58px;
+    padding-top: 60px;
+    padding-bottom: 48px;
+}
+.consult_calendrier div h3 svg{
+    margin-top: -5px;
+    margin-right: 2PX;
+}
+.nom_bio p{
+    font-weight: 300;
+    display: inline;
+    padding-left: 130px;
+    font-size: 19px;
+}
+.nom_bio p svg{
+    margin-top: -2px;
+}
+.jours h2{
+        font-size: 23px;
+    color: black;
+    font-weight: 700;
+    padding-left: 57PX;
+    padding-top: 50PX;
+}
+.jours h2 span{
+    padding-left: 6px;
+}
+.vacances h2{
+    font-size: 23px;
+    color: black;
+    font-weight: 700;
+    padding-left: 57PX;
+    padding-bottom: -23PX;
+    padding-top: 31PX;
+}
+.vacances h2 span{
+    padding-left: 6px;
+}
+.vacances h2 img{
+    width: 22px;
+    margin-left: 0px;
+    margin-top: -6PX;
+}
+.tab_fete{
+    padding-bottom: 20px;
+}

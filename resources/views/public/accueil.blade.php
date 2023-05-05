@@ -1,7 +1,7 @@
 <div class="">
 
 
-    @include('portail_client.header')
+    @include('public.header')
 
             <!-- Welcome -->
 
@@ -126,6 +126,6 @@
             </div>
         </div>
 
-@include('portail_client.footer')
+@include('public.footer')
 
 
