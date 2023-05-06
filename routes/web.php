@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StaticController;
 use App\Http\Controllers\SetupController;
@@ -107,3 +108,10 @@ Route::middleware('setup.need')->group(function () {
 });
 
 
+/**
+ *
+ *  Consulter les agent
+ *
+ */
+
+Route::get('/consultAgent',[AgentController::class,'consultAgent'])->name('consultAgent');
