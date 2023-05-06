@@ -7,6 +7,7 @@ use App\Http\Controllers\SetupController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\RoleController;
 
 
 /*
@@ -67,6 +68,19 @@ Route::middleware('setup.need')->group(function () {
     Route::prefix('dashboard')->name('dashboard.')->group(function () {
 
         Route::get('/', function () { return view('dashboard.home.index'); })->name('index');
+
+        Route::prefix('roles')->name('role.')->group(function () {
+            
+            Route::get('/', [ RoleController::class, 'index' ])->name('index');
+            Route::get('add', [ RoleController::class, 'create' ])->name('create');
+            Route::post('add', [ RoleController::class, 'store' ])->name('store');
+            Route::get('edit/{id}', [ RoleController::class, 'edit' ])->name('edit');
+            Route::post('edit/{id}', [ RoleController::class, 'update' ])->name('update');
+            Route::get('delete/{id}', [ RoleController::class, 'delete' ])->name('delete');            
+            Route::get('/{id}', [ RoleController::class, 'view' ])->name('view');
+            
+
+        });
 
     });
 
