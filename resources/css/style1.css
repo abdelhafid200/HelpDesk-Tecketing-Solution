@@ -717,25 +717,9 @@ width: 35px;
     margin-bottom: 6PX;
     width: 660PX;
 }
-/* .formulaire {
-    display: none;
-    padding: 10px;
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-} */
 
-#form1{
-    width: 765PX;
-    margin-top: 70PX;
-}
-#form2{
-    width: 765PX;
-    margin-top: 70PX;
-}
-#form3{
-    width: 765PX;
-    margin-top: 70PX;
-}
+
+
 #formFileMultiple1{
     width: 638px;
 
@@ -851,9 +835,7 @@ width: 35px;
     border: 0.5px solid black;
     border-radius: 10px;
 }
-.img_sign{
 
-}
 
 .sign{
     grid-area: email;

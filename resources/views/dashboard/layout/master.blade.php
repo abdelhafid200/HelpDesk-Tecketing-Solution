@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title') | Help Center</title>
     @vite('resources/sass/dashboard/main.scss')
+    @vite('resources/css/style2.css')
 </head>
 <body>
     @yield('main')

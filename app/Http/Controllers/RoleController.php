@@ -10,10 +10,10 @@ use App\Http\Requests\StoreRoleRequest;
 
 class RoleController extends Controller
 {
-    
+
     /**
-     * 
-     * 
+     *
+     *
      */
     public function index()
     {
@@ -22,7 +22,7 @@ class RoleController extends Controller
 
     /**
      * Show the form to add new role
-     * 
+     *
      */
     public function create()
     {
@@ -38,8 +38,8 @@ class RoleController extends Controller
     }
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public function store(StoreRoleRequest $request)
     {
@@ -57,8 +57,8 @@ class RoleController extends Controller
         }
 
         return to_route('dashboard.role.index')->with('success', 'Le rôle a été créer avec succès');
-        
-        
+
+
     }
 
     public function edit($id)
@@ -85,7 +85,7 @@ class RoleController extends Controller
 
     public function delete($id)
     {
-        
+
         $role = Role::findOrFail($id);
 
         $role->delete();

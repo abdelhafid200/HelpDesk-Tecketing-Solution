@@ -7,8 +7,9 @@ use App\Http\Controllers\SetupController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\RoleController;
-
+use App\Http\Controllers\TicketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,19 +71,71 @@ Route::middleware('setup.need')->group(function () {
         Route::get('/', function () { return view('dashboard.home.index'); })->name('index');
 
         Route::prefix('roles')->name('role.')->group(function () {
-            
+
             Route::get('/', [ RoleController::class, 'index' ])->name('index');
             Route::get('add', [ RoleController::class, 'create' ])->name('create');
             Route::post('add', [ RoleController::class, 'store' ])->name('store');
             Route::get('edit/{id}', [ RoleController::class, 'edit' ])->name('edit');
             Route::post('edit/{id}', [ RoleController::class, 'update' ])->name('update');
-            Route::get('delete/{id}', [ RoleController::class, 'delete' ])->name('delete');            
+            Route::get('delete/{id}', [ RoleController::class, 'delete' ])->name('delete');
             Route::get('/{id}', [ RoleController::class, 'view' ])->name('view');
-            
+
+    });
+
+    });
+
+
+
+    /**
+     *
+     *  les routes des clients
+     *
+     */
+
+
+        Route::prefix('dashboard')->name('dashboard.')->group(function(){
+
+            Route::prefix('customers')->name('customers.')->group(function(){
+
+                Route::get('/',[ClientController::class, 'index'])->name('index');
+                Route::get('add',[ClientController::class, 'create' ])->name('create');
+                Route::post('add',[ClientController::class, 'store' ])->name('store');
+                Route::get('edit/{id}',[ClientController::class, 'edit' ])->name('edit');
+                Route::put('edit/{id}',[ClientController::class, 'update' ])->name('update');
+
+                Route::delete('delete/{id}',[ClientController::class, 'destroy' ])->name('destroy');
+
+
+                Route::put('block/{id}',[ClientController::class, 'block' ])->name('block');
+                Route::put('deblock/{id}',[ClientController::class, 'deblock' ])->name('deblock');
+
+                Route::get('confirm-block/{id}',[ClientController::class, 'confirmBlock' ])->name('confirm-block');
+
+                Route::get('confirm-supprimer/{id}',[ClientController::class, 'confimSupprimer' ])->name('confirm-supprimer');
+
+            });
 
         });
 
-    });
+        /**
+         *
+         *     les routes de la vérification du comptes des clients
+         *
+         */
+            Route::get('/verify_email/{hash}',[ClientController::class, 'verifyEmail']);
+            Route::get('editPassword/{hash}',[ClientController::class, 'editPassword'])->name('editPassword');
+            Route::put('editPassword/{hash}',[ClientController::class, 'updatePassword'])->name('updatePassword');
+
+
+        /**
+         *
+         *     la création d'un ticket avec AJax
+         *
+         */
+
+        Route::post('/check-email', [TicketController::class, 'checkEmail']);
+
+
 
 
     /**
@@ -116,7 +169,10 @@ Route::middleware('setup.need')->group(function () {
     Route::get('/',[StaticController::class,'accueil'])->name("home.accueil");
     Route::get('home',[StaticController::class,'home'])->name("home.home");
     Route::get('knowldege_base',[StaticController::class,'knowldege'])->name("home.base");
-    Route::get('new_ticket',[StaticController::class,'new_ticket'])->name("home.new_ticket");
+    Route::get('new_ticket',[StaticController::class,'new_ticket'])->name("new_ticket");
+
+    Route::post('/new_ticket', [TicketController::class, 'newTicket'])->name('new_ticket');
+
 
 
 });

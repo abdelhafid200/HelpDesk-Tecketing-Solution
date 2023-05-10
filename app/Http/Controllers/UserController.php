@@ -15,8 +15,8 @@ class UserController extends Controller
 {
 
     /**
-     * 
-     * 
+     *
+     *
      */
     public function create()
     {
@@ -46,10 +46,10 @@ class UserController extends Controller
         return redirect()->route('user.login');
 
     }
-    
+
     /**
      * Show the login form
-     * 
+     *
      */
     public function login()
     {
@@ -58,36 +58,61 @@ class UserController extends Controller
 
     /**
      * Handle the login and authentication request to the application
-     * 
+     *
      */
-    public function authenticate(Request $request)
-    {
+    // public function authenticate(Request $request)
+    // {
 
-        $credentials = $request->validate([
-            'email' => 'required|email|exists:users',
-            'password' => 'required'
-        ]);
+    //     $credentials = $request->validate([
+    //         'email' => 'required|email|exists:users',
+    //         'password' => 'required'
 
-        if(Auth::attempt($credentials)){
+    //     ]);
 
-            $user = Auth::user();
+    //     if(Auth::attempt($credentials)){
 
-            $request->session()->regenerate();
-            return redirect()->route($user->agent ? 'dashboard.index' : 'home');
+    //         $user = Auth::user();
 
-        }
-        
-        return back()->withErrors(['email'=> 'Email ou mot de passe incorrect.'])->onlyInput('email');
+    //         $request->session()->regenerate();
+    //         return redirect()->route($user->agent ? 'dashboard.index' : 'home');
 
-    }
+    //     }
+
+    //     return back()->withErrors(['email'=> 'Email ou mot de passe incorrect.'])->onlyInput('email');
+
+    // }
+                public function authenticate(Request $request){
+
+                $credentials = $request->validate([
+                    'email' => 'required|email|exists:users,email',
+                    'password' => 'required'
+                ]);
+
+                $user = User::where('email', $request->email)->first();
+
+                if (!$user || !Hash::check($request->password, $user->password)) {
+                    return back()->withErrors(['email'=> 'Email ou mot de  incorrect.'])->onlyInput('email');
+                }
+
+                if (!$user->email_verified_at) {
+                    return back()->withErrors(['email'=> 'Votre adresse e-mail n\'a pas encore été vérifiée. Veuillez vérifier votre boîte de réception pour un e-mail de vérification.'])->onlyInput('email');
+                }
+
+                Auth::login($user);
+
+                $request->session()->regenerate();
+                return redirect()->route($user->agent ? 'dashboard.index' : 'home');
+
+            }
+
 
     /**
      * Log out the user out of the application
-     * 
+     *
      */
     public function logout(Request $request)
     {
-        
+
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();

@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mail\ProfileMail;
+use Illuminate\Support\Facades\Mail;
 
 class StaticController extends Controller
 {
-    public function accueil(){
+    public function accueil(Request $request){
+
         return view('public.accueil');
     }
     public function home(){

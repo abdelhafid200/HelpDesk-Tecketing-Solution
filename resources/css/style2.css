@@ -436,3 +436,156 @@ tr.col td{
 .tab_fete{
     padding-bottom: 20px;
 }
+
+/*
+    style de consult AGent
+*/
+.consultAgent{
+    background-color: white;
+    margin: 70PX 50PX 0PX 170PX;
+    padding: 30PX 42PX 20PX 40PX;
+}
+.titleAgent{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-areas: "agen agen agen . . . . . . addAgent addAgent addAgent";
+}
+.agen_titre{
+    grid-area: agen;
+}
+
+.titleAgent h3{
+    font-size: 25px;
+    font-weight: 700;
+    color: #12344d;
+    padding-bottom: 21px;
+}
+
+.addAgent{
+    grid-area: addAgent;
+    grid-area: button;
+    background-color: #12344dd1;
+    padding: 12px 12px;
+    margin-bottom: 14px;
+    margin-top: -58px;
+    margin-right: 26px;
+    border-radius: 41px;
+}
+.addAgent:hover{
+    background-color: #12344d;
+    color: white;
+}
+.addAgent a {
+    text-decoration: none;
+    color: white;
+}
+.addAgent a:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.new_agent{
+    margin: 12PX auto;
+    padding-bottom: 22px;
+}
+.search-agent{
+    padding-bottom: 32px;
+}
+
+.search-agent input{
+background-color: white;
+border-left: none;
+}
+.search-agent span{
+background-color: white;
+}
+.support-agent{
+    font-size: 15px;
+    color: #12344d;
+    margin-bottom: -17px;
+}
+.trier{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 25px;
+}
+.trier div span{
+    border: 1px solid #cfd7df;
+    padding-left: 8px;
+    padding-right: 88px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding: 4PX 103PX 4PX 8PX;
+    border-radius: 9px;
+}
+
+
+/*
+*
+*       les style concerne ajoute client
+*
+*/
+.client-form2 label{
+        padding-left: 12px;
+        padding-right: 14px;
+    }
+#title-client{
+    color:#12344d;
+}
+.btn-edit-client{
+    padding: 7PX 7PX;
+    margin-top: 12px;
+    margin-right: 8px;
+    border: solid 0.2px #9189891c;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+
+}
+.btn-edit-client:hover{
+    background-color: #0c4a6e;
+    color: white;
+}
+
+/*
+    style de page de vérification
+*/
+.page-verification{
+    margin: 60PX AUTO;
+    background-color: white;
+    box-shadow: 0 0 1px 0 rgba(24,50,71,.3), 0 2px 6px 0 rgba(22,29,37,.05);
+    WIDTH: 800PX;
+    padding-top: 30px;
+    padding-bottom: 43px;
+}
+.page-verification h3{
+    font-weight: 800;
+    color: #15303f;
+    position: relative;
+    LEFT: 200PX;
+}
+.page-verification small{
+    font-weight: 800;
+    color: #15303f;
+    position: relative;
+    LEFT: 200PX;
+}
+.password-change{
+    position: relative;
+    top: 21px;
+    left: 200px;
+}
+/* .password-change div{
+    padding-top: 17px;
+} */
+.page-confirm{
+    margin: 60PX AUTO;
+    background-color: white;
+    box-shadow: 0 0 1px 0 rgba(24,50,71,.3), 0 2px 6px 0 rgba(22,29,37,.05);
+    WIDTH: 800PX;
+    padding-top: 30px;
+    padding-bottom: 43px;
+}
+
+

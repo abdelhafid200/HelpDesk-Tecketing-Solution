@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Agent extends Model
 {
     use HasFactory;
+
+
+    protected $fillable = [
+        'user_id',
+        'scope',
+        'signature',
+        'work',
+        'calendar_id',
+
+    ];
+    
 }

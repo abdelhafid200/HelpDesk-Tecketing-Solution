@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('size');
             $table->string('name');
-            $table->string('storage');
+            $table->string('storage')->default('uploads');
             $table->string('type');
             $table->foreignId('ticket_id')->constrained()->cascadeOnDelete();
             $table->timestamps();

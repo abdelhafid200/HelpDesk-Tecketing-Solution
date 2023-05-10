@@ -19,193 +19,98 @@
 
 
                 <div class="selecte">
-
-                                <div>
-                                    <h2>Entrer en contact</h2>
-                                </div>
-                                <div class="select_option">
-                                    <select class="form-select" id="select-form" aria-label="Default select example">
-                                    <option selected>Choisissez une option</option>
-                                        <option value="form1">poser une question</option>
-                                        <option value="form2">signaler un problème</option>
-                                        <option value="form3">exiger le statut</option>
-                                    </select>
+                        <form id="myForm" action="{{ route('new_ticket') }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                                <div class="form-floating py-2 mb-3">
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email1" name="email" placeholder="email">
+                                    <label for="email1">Email</label>
+                                    @error('email')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
+                                {{-- les information d'utilisateur --}}
 
-                                <!-- Poser une question -> debut  -->
+                                <div id="client-fields" style="display: none;">
+                                    <div class="form-floating py-2 mb-3">
+                                        <input type="text" class="form-control @error('first_name') is-invalid @enderror" id="first_name" name="first_name" placeholder="first_name">
+                                        <label for="first_name">Nom</label>
+                                        @error('first_name')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
 
+                                    <div class="form-floating py-2 mb-3">
+                                        <input type="text" class="form-control @error('last_name') is-invalid @enderror" id="last_name" name="last_name" placeholder="last_name">
+                                        <label for="last_name">Prénom</label>
+                                        @error('last_name')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
 
-                                <div class="formulaire" id="form1" style="display: none;">
-                                    <form class="label-form" id="">
-                                        <div class="row mb-3">
-                                                <label for="inputrequest1" class="col-sm-3 col-form-label ">Enter your email address</label>
-                                            <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="inputrequest1">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="" placeholder="votre Nom">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                                <label for="inputSubject1" class="col-sm-3 col-form-label">Subject</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputSubject1">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                                <label for="mytextarea" class="col-sm-3 col-form-label">Description</label>
-                                            <div class="col-sm-12" id="textarea">
-                                                <textarea id="mytextarea"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input class="form-control"  type="file" id="formFileMultiple1" multiple>
-                                        </div>
-                                        <br>
-                                        <input class="btn btn-secondary" type="reset" value="Reset">
-                                        <input class="btn btn-primary" type="submit" value="Submit">
-
-                                    </form>
+                                    <div class="form-floating py-2 mb-3">
+                                        <input type="number" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" placeholder="phone">
+                                        <label for="phone">Phone</label>
+                                        @error('phone')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
 
-
-                                <!-- Poser une question -> Fin  -->
-
+                                {{-- les information d'utilisateur --}}
 
 
+                                    <div class="form-floating py-2 mb-3">
+                                        <input type="text" class="form-control @error('subject') is-invalid @enderror" id="subject" name="subject" placeholder="Sujet">
+                                        <label for="subject">Sujet</label>
+                                        @error('subject')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
 
-                                <div class="formulaire" id="form2" style="display: none;">
-                                    <form class="label-form" id="">
-                                        <div class="row mb-3">
-                                                <label for="inputrequest2" class="col-sm-3 col-form-label ">Requester</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputrequest2">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="" placeholder="votre Nom">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                                <label for="inputSubject2" class="col-sm-3 col-form-label">Subject</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputSubject2">
-                                            </div>
-                                        </div>
+                                    <div class="form-floating py-2 mt-3">
+                                        <select class="form-select" id="priority" name="priority" aria-label="Floating label select example">
+                                            <option selected>Select une priorité</option>
+                                            <option value="0">Urgent</option>
+                                            <option value="1">Elevé</option>
+                                            <option value="2"> Normal</option>
+                                            <option value="3"> Bas</option>
+                                        </select>
+                                        <label for="priority">priorité</label>
+                                    </div>
 
+                                    <div class="form-floating py-2 mt-3">
+                                        <textarea class="form-control" placeholder="Leave a comment here" name="description" id="description"></textarea>
+                                        <label for="description">Comments</label>
+                                    </div>
 
-                                        <div class="row mb-3">
-                                                <label for="inputtype2" class="col-sm-3 col-form-label">Type</label>
-                                            <div class="col-sm-10">
-                                                <select class="form-select form-control" aria-label="Default select example">
-                                                    <option selected>Choisir</option>
-                                                    <option value="1">Question</option>
-                                                    <option value="2">Incident</option>
-                                                    <option value="3">Problem</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                    <div class="py-5 ">
+                                        <label class="">
+                                            <span class="btn btn-secondary">
+                                                <span>Select des fichier</span>
+                                                <input type="file" name="file" id="file" class="hidden">
+                                            </span>
+                                        </label>
+                                    </div>
 
-                                        <div class="row mb-3">
-                                                <label for="inputpriority2" class="col-sm-3 col-form-label">priority</label>
-                                            <div class="col-sm-10">
-                                                <select class="form-select  form-control" aria-label="Default select example" id="inputpriority2">
-                                                    <option selected></option>
-                                                    <option value="1">Low</option>
-                                                    <option value="2">Medium</option>
-                                                    <option value="3">Hight</option>
-                                                    <option value="4">Ugent</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                            <input class="btn btn-secondary mt-3" type="reset" value="Reset">
+                            <input class="btn btn-primary mt-3" type="submit" value="Submit">
+                    </form>
+                </div>
+                                            {{-- <!-- form3 --> --}}
 
 
-
-                                        <div class="row mb-3">
-                                                <label for="mytextarea" class="col-sm-3 col-form-label">Description</label>
-                                            <div class="col-sm-12" id="textarea">
-                                                <textarea id="mytextarea"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                                <label for="inputreference2" class="col-sm-3 col-form-label">Reference Number</label>
-                                            <div class="col-sm-10">
-                                                <input type="number" class="form-control" id="inputreference2">
-                                            </div>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <input class="form-control" id="file" type="file" id="formFileMultiple2" multiple>
-                                        </div>
-                                        <br>
-                                        <input class="btn btn-secondary" type="reset" value="Reset">
-                                        <input class="btn btn-primary" type="submit" value="Submit">
-                                    </form>
-                                </div>
-
-                                            <!-- form3 -->
-
-                                <div class="formulaire" id="form3" style="display: none;">
-                                    <form class="label-form" id="">
-                                        <div class="row mb-3">
-                                                <label for="inputrequest3" class="col-sm-3 col-form-label ">Requester</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputrequest3">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="" placeholder="votre Nom">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                                <label for="inputSubject3" class="col-sm-3 col-form-label">Subject</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputSubject3">
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                                <label for="mytextarea" class="col-sm-3 col-form-label">Description</label>
-                                            <div class="col-sm-12" id="textarea">
-                                                <textarea id="mytextarea"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input class="form-control" id="file" type="file" id="formFileMultiple3" multiple>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                                <label for="inputreference3" class="col-sm-3 col-form-label">Reference Number</label>
-                                            <div class="col-sm-10">
-                                                <input type="number" class="form-control" id="inputreference3">
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <input class="btn btn-secondary" type="reset" value="Reset">
-                                        <input class="btn btn-primary" type="submit" value="Submit">
-
-                                        <!-- <div class="textarea">
-                                            <textarea id="mytextarea"></textarea>
-                                        </div> -->
-
-                                    </form>
-                                </div>
 
 
 
 
                 <!-- fin le css de select -->
-            </div>
+        </div>
                 <!-- Code java Script pour les selections  -->
                 <!-- le code java script de textarea -->
                 <script>
                         tinymce.init({
-                            selector: '#mytextarea',
+                            selector: '#description',
                             height: 500,
                             plugins: [
                                 'advlist autolink lists link image charmap print preview anchor',
@@ -220,8 +125,69 @@
                         });
                 </script>
 
+                {{-- Ajax --}}
 
-    <script>
+                <script>
+                    // const emailInput = document.getElementById('email');
+                    // const nameInput = document.getElementById('first_name');
+                    // const lastNameInput = document.getElementById('last_name');
+                    // const phoneInput = document.getElementById('phone');
+                    // const subjectInput = document.getElementById('subject');
+                    // const descriptionInput = document.getElementById('description');
+                    // const priorityInput = document.getElementById('priority');
+                    // const fileInput = document.getElementById('file');
+
+                    // emailInput.addEventListener('blur', () => {
+                    // const email = emailInput.value;
+                    // fetch(`/check-email?email=${email}`)
+                    //     .then(response => response.json())
+                    //     .then(data => {
+                    //     if (data.exists) {
+                    //         nameInput.disabled = true;
+                    //         lastNameInput.disabled = true;
+                    //         phoneInput.disabled = true;
+                    //     } else {
+                    //         nameInput.disabled = false;
+                    //         lastNameInput.disabled = false;
+                    //         phoneInput.disabled = false;
+                    //     }
+                    //     })
+                    // });
+
+                    // Get references to the relevant DOM elements
+                        </script>
+                    <script>
+
+                    const emailInput = document.getElementById('email1');
+                    const clientFields = document.getElementById('client-fields');
+
+                    emailInput.addEventListener('blur', () => {
+                        const email = emailInput.value;
+
+                            // Vérifier si l'adresse email est valide
+                        const isValidEmail = validateEmail(email);
+
+                    // Si l'adresse email est valide, afficher les champs client
+                    if (isValidEmail) {
+                        clientFields.style.display = 'block';
+                    } else {
+                        clientFields.style.display = 'none';
+                    }
+                    });
+
+                    function validateEmail(email) {
+                    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    return regex.test(email);
+                    }
+</script>
+
+
+
+
+                {{-- Ajax --}}
+
+
+    {{-- <script>
             $(document).ready(function() {
                 $('#select-form').change(function() {
                     var selectedForm = $(this).val();
@@ -229,7 +195,7 @@
                     $('#'+selectedForm).show();
                 });
             });
-	</script>
+	</script> --}}
             <footer class="footer2">
                     <div class="software1">
                         <p>HelpDesk Software</p>

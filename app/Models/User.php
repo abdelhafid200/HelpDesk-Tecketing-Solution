@@ -23,6 +23,7 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
         'last_name',
         'email',
         'password',
+        'email_verified_at'
     ];
 
     /**
@@ -53,19 +54,21 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
 
     /**
      * Get the client associated with the users
-     * 
+     *
      */
     public function client()
     {
         return $this->hasOne(Client::class);
     }
-    
+
     /**
      * Get the agent associated with the users
-     * 
+     *
      */
     public function agent()
     {
         return $this->hasOne(Agent::class);
     }
+
+
 }
