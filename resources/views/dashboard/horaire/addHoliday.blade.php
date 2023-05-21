@@ -16,9 +16,9 @@
     </div>
         <div id="internal-form">
             <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h3>Ajouter une Fête</h3>
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>Ajouter une Fête</h3>
                             <div id="myForm">{{-- <form id="myForm"> --}}
                                 <div class="row" id="date_name">
                                     <div class="col-md-6">
@@ -36,13 +36,13 @@
 
                                 <div class="row" id="cancel_add">
                                     <div >
-                                        <button type="button" class="cancel" aria-label="Close" id="cancelButton">Annuler</button>
+                                        <button type="reset" class="cancel" aria-label="Close" id="cancelButton">Annuler</button>
                                     </div>
                                     <div >
-                                        <button class="add" id="submitButton" type="button">Envoyer</button>
+                                        <button class="add" id="submitButton" type="submit">Envoyer</button>
                                     </div>
                                 </div>
-                        </div>
+                            </div>
                 </div>
             </div>
         </div>
@@ -84,7 +84,6 @@ var closeModal = document.getElementsByClassName("close")[0];
     });
 
     form.addEventListener('submit', function(event) {
-    event.preventDefault();
     // Logique de soumission du formulaire
     console.log('Le formulaire a été soumis.');
     });

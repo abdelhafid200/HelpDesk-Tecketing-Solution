@@ -1,14 +1,19 @@
 <?php
 
 use App\Http\Controllers\AgentController;
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StaticController;
 use App\Http\Controllers\SetupController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SectionController;
 use App\Http\Controllers\TicketController;
 
 /*
@@ -91,8 +96,6 @@ Route::middleware('setup.need')->group(function () {
      *  les routes des clients
      *
      */
-
-
         Route::prefix('dashboard')->name('dashboard.')->group(function(){
 
             Route::prefix('customers')->name('customers.')->group(function(){
@@ -143,9 +146,12 @@ Route::middleware('setup.need')->group(function () {
      *
      */
 
+    Route::prefix('dashboard')->name('dashboard.')->group(function(){
+
+
     Route::get('/calendar',[CalendarController::class,'calendar'])->name("calendar");
     Route::get('/newCalendar',[CalendarController::class,'newCalendar'])->name("newCalendar");
-    Route::get('calendar/edit/{id}', [ CalendarController::class,'edit']);
+    Route::get('calendar/edit/{id}', [ CalendarController::class,'edit'])->name('edit');
     Route::put('/calendar/{id}',[ CalendarController::class,'update'])->name('update');
 
 
@@ -155,12 +161,11 @@ Route::middleware('setup.need')->group(function () {
 
     Route::delete('/calendar/{id}', [ CalendarController::class,'destroy'])->name('calendar.destroy');
 
-
-    Route::post('/newCalendar/store1',[CalendarController::class,'store1'])->name("store1");
-    Route::get('/newCalendar/store2',[CalendarController::class,'store2'])->name("store2");
+    Route::get('add',[CalendarController::class,'create'])->name("create");
+    Route::post('add',[CalendarController::class,'store1'])->name("store1");
 
     Route::get('/test',[CalendarController::class,'testHoraire'])->name("test");
-
+    });
     /**
      *
      *
@@ -171,10 +176,11 @@ Route::middleware('setup.need')->group(function () {
     Route::get('knowldege_base',[StaticController::class,'knowldege'])->name("home.base");
     Route::get('new_ticket',[StaticController::class,'new_ticket'])->name("new_ticket");
 
-    Route::post('/new_ticket', [TicketController::class, 'newTicket'])->name('new_ticket');
+    Route::post('check_email', [TicketController::class, 'newTicket'])->name('newTicket');
+    Route::post('/new_ticket', [TicketController::class, 'newTicket'])->name('newTicket');
 
-
-
+// Route::post('/checkEmail', [TicketController::class, 'checkEmail'])->name('checkEmail');
+// Route::post('/newTicket', [TicketController::class ,'newTicket'])->name('newTicket');
 });
 
 
@@ -183,5 +189,88 @@ Route::middleware('setup.need')->group(function () {
  *  Consulter les agent
  *
  */
+Route::prefix('dashboard')->name('dashboard.')->group(function(){
+
 
 Route::get('/consultAgent',[AgentController::class,'consultAgent'])->name('consultAgent');
+
+});
+/**
+ *
+ *  les sections
+ *
+ */
+
+            Route::prefix('dashboard')->name('dashboard.')->group(function(){
+
+                Route::prefix('section')->name('section.')->group(function(){
+
+                    Route::get('/', [SectionController::class, 'index'])->name('index');
+                    Route::post('/', [SectionController::class, 'store'])->name('store');
+
+                    Route::get('edit/{id}', [SectionController::class, 'edit'])->name('edit');
+                    Route::put('update/{id}', [SectionController::class, 'update'])->name('update');
+
+                    Route::get('destory/{id}',[SectionController::class, 'destroy'])->name('destroy');
+
+                });
+
+            });
+            Route::prefix('dashboard')->name('dashboard.')->group(function(){
+
+                Route::prefix('category')->name('category.')->group(function(){
+
+                    Route::get('/', [CategoryController::class, 'index'])->name('index');
+                    Route::post('/', [CategoryController::class, 'store'])->name('store');
+
+                    Route::get('delete/{id}',[CategoryController::class, 'destroy'])->name('delete');
+                    Route::get('.edit/{id}',[CategoryController::class, 'edit'])->name('edit');
+                    Route::put('edit/{id}',[CategoryController::class, 'update'])->name('update');
+
+
+                });
+
+            });
+
+            Route::prefix('tickets')->name('tickets.')->group(function(){
+
+                Route::get('/', [TicketController::class, 'ticket'])->name('tickets');
+                // Route::POST('search', [TicketController::class, 'search'])->name('search');
+                Route::match(['get', 'post'], 'search', [TicketController::class, 'search_ticket'])->name('search_ticket');
+                Route::get('NotFound', [TicketController::class, 'notfound'])->name('notfound');
+
+                Route::get('myticket', [TicketController::class, 'show'])->name('show');
+                Route::get('response/{id}', [TicketController::class, 'response'])->name('response');
+
+                Route::get('response', [FeedbackController::class, 'feedback'])->name('feedback');
+                Route::post('response', [FeedbackController::class, 'store'])->name('store');
+
+                Route::get('response', [MessageController::class, 'index'])->name('index');
+                Route::POST('response', [MessageController::class, 'store'])->name('store');
+
+                Route::get('chercher', [TicketController::class, 'chercher'])->name('chercher');
+
+                Route::get('search-articles', [ArticleController::class, 'search'])->name('search');
+                Route::post('result-articles', [ArticleController::class, 'show'])->name('show');
+
+                Route::get('article/{id}', [ArticleController::class, 'article'])->name('article');
+                // Route::get('liste-article/{category_id}/article/{article_id}', [ArticleController::class, 'article'])->name('article');
+
+            });
+            Route::prefix('helpdesk')->name('helpdesk.')->group(function(){
+
+                Route::get('io', [SectionController::class, 'section'])->name('section');
+
+                Route::get('liste-article/{id}', [SectionController::class, 'liste'])->name('liste-article');
+
+                Route::get('liste-article/{category_id}/article/{article_id}', [SectionController::class, 'show'])->name('show-article');
+
+            });
+
+
+            // language
+            Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => '\App\Http\Controllers\LanguagesController@switchLang']);
+
+
+
+

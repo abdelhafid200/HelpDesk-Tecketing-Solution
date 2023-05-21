@@ -60,8 +60,7 @@ class ClientController extends Controller
         $user->last_name = $request->input('last_name');
         $user->email = $request->input('email');
         $user->phone = $request->input('phone');
-        $user->password = $request->input('password');
-        $user->password = bcrypt('password');
+        $user->password = bcrypt($request->input('password'));
         $user->save();
 
 
@@ -166,7 +165,6 @@ class ClientController extends Controller
 
 
         public function edit($id){
-
             $client = Client::findOrFail($id);
             // $user = User::all();
             return view('dashboard.customer.edit', compact('client'));

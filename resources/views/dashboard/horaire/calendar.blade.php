@@ -13,13 +13,24 @@
             <h1>Heures de travail</h1>
         </div>
         <div class="button_hours">
-            <a href="newCalendar">Ajouter des heures d'ouverture</a>
+            {{-- <a href="newCalendar">Ajouter des heures d'ouverture</a> --}}
+            <a href="{{route('dashboard.create')}}">Ajouter des heures d'ouverture</a>
         </div>
     </div>
 
-@if (session()->has('message'))
-    <div class="alert alert-info" role="alert" id="message">
-        {{session()->get('message')}}
+@if (session()->has('message_supprime'))
+    <div class="alert alert-info" role="alert" id="message_supprime">
+        {{session()->get('message_supprime')}}
+    </div>
+@endif
+@if (session()->has('message_ajoute'))
+    <div class="alert alert-info" role="alert" id="message_ajoute">
+        {{session()->get('message_ajoute')}}
+    </div>
+@endif
+@if (session()->has('message_update'))
+    <div class="alert alert-info" role="alert" id="message_update">
+        {{session()->get('message_update')}}
     </div>
 @endif
 
@@ -46,16 +57,16 @@
                 </a>
             </div>
             {{-- <form action="/calendar" method="post"> --}}
-            <form action="{{ route('calendar.destroy', ['id' => $calendar->id]) }}" method="post">
+            <form action="{{ route('dashboard.calendar.destroy', ['id' => $calendar->id]) }}" method="post">
                 @csrf
                 @method('delete')
-                <button type="submit" class="btn-delete">
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                    </svg>
-                    </span>
-                </button>
+                    <button type="submit" class="btn-delete">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                        </svg>
+                        </span>
+                    </button>
 
                 {{-- {{$holiday}} --}}
 

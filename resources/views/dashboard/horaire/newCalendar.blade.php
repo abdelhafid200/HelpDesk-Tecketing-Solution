@@ -8,7 +8,7 @@
 
 
 
-    <form action="{{ route('store1')}}" method="POST" class="all" id="external-form">
+    <form action="{{ route('dashboard.store1')}}" method="POST" class="all" id="external-form">
         @csrf
         <div class="new_calendar">
 
@@ -61,7 +61,6 @@
 
 
                     @include('dashboard.horaire.addHoliday')
-
                 {{--  --}}
                     <!-- Autres contenus pour l'onglet Home -->
                 <div class="tab-pane fade" id="contact1" role="tabpanel" aria-labelledby="contact-tab2">

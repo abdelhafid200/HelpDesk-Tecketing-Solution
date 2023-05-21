@@ -9,7 +9,7 @@
 
 {{-- <form action="{{ route('store1/{{$calendar->id}}')}}" method="POST" class="all" id="external-form"> --}}
 {{-- <form action="{{ route('update'.{{$calendar->id}})}}" method="POST" class="all" id="external-form"> --}}
-<form action="{{ route('update', ['id' => $calendar->id]) }}" method="POST" class="all" id="external-form">
+<form action="{{ route('dashboard.update', ['id' => $calendar->id]) }}" method="POST" class="all" id="external-form">
     @csrf
     @method('PUT')
     <div class="new_calendar">

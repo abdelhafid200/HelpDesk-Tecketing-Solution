@@ -23,7 +23,7 @@
 
             <p>Cliquez sur le lien ci-dessous pour confirmer votre adresse e-mail :</p>
 
-                <a href="{{ $href }}" class="btn btn-primary">Confirmer votre Compte</a>
+                <a href="{{ $href }}" class="btn btn-primary ml-4 pl-4">Confirmer votre Compte</a>
 
             <p>Si vous n'avez pas demandé cette confirmation, veuillez ignorer ce message.</p>
         </div>

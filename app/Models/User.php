@@ -70,5 +70,12 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
         return $this->hasOne(Agent::class);
     }
 
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
+    }
+
+
+
 
 }

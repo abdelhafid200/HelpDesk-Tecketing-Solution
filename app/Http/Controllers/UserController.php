@@ -83,12 +83,13 @@ class UserController extends Controller
     // }
                 public function authenticate(Request $request){
 
-                $credentials = $request->validate([
+                $request->validate([
                     'email' => 'required|email|exists:users,email',
                     'password' => 'required'
                 ]);
 
                 $user = User::where('email', $request->email)->first();
+                $client = new Client();
 
                 if (!$user || !Hash::check($request->password, $user->password)) {
                     return back()->withErrors(['email'=> 'Email ou mot de  incorrect.'])->onlyInput('email');
@@ -98,11 +99,16 @@ class UserController extends Controller
                     return back()->withErrors(['email'=> 'Votre adresse e-mail n\'a pas encore été vérifiée. Veuillez vérifier votre boîte de réception pour un e-mail de vérification.'])->onlyInput('email');
                 }
 
+                if($user->id === $client->user_id){
+
+                    return redirect()->route('tickets');
+
+                }
+
                 Auth::login($user);
 
                 $request->session()->regenerate();
                 return redirect()->route($user->agent ? 'dashboard.index' : 'home');
-
             }
 
 

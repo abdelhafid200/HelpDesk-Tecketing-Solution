@@ -19,7 +19,7 @@
 
 
                 <div class="selecte">
-                        <form id="myForm" action="{{ route('new_ticket') }}" method="post" enctype="multipart/form-data">
+                        <form id="myForm" action="{{ route('newTicket') }}" method="post" enctype="multipart/form-data">
                             @csrf
                                 <div class="form-floating py-2 mb-3">
                                     <input type="email" class="form-control @error('email') is-invalid @enderror" id="email1" name="email" placeholder="email">
@@ -31,10 +31,10 @@
 
                                 {{-- les information d'utilisateur --}}
 
-                                <div id="client-fields" style="display: none;">
+                                <div id="client-fields">
                                     <div class="form-floating py-2 mb-3">
                                         <input type="text" class="form-control @error('first_name') is-invalid @enderror" id="first_name" name="first_name" placeholder="first_name">
-                                        <label for="first_name">Nom</label>
+                                        <label for="first_name">Prénom</label>
                                         @error('first_name')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -42,7 +42,7 @@
 
                                     <div class="form-floating py-2 mb-3">
                                         <input type="text" class="form-control @error('last_name') is-invalid @enderror" id="last_name" name="last_name" placeholder="last_name">
-                                        <label for="last_name">Prénom</label>
+                                        <label for="last_name">Nom</label>
                                         @error('last_name')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -106,96 +106,61 @@
 
                 <!-- fin le css de select -->
         </div>
-                <!-- Code java Script pour les selections  -->
-                <!-- le code java script de textarea -->
-                <script>
-                        tinymce.init({
-                            selector: '#description',
-                            height: 500,
-                            plugins: [
-                                'advlist autolink lists link image charmap print preview anchor',
-                                'searchreplace visualblocks code fullscreen',
-                                'insertdatetime media table paste code help wordcount'
-                            ],
-                            toolbar: 'undo redo | formatselect | ' +
-                                'bold italic backcolor | alignleft aligncenter ' +
-                                'alignright alignjustify | bullist numlist outdent indent | ' +
-                                'removeformat | help',
-                            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
-                        });
-                </script>
+
 
                 {{-- Ajax --}}
+                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-                <script>
-                    // const emailInput = document.getElementById('email');
-                    // const nameInput = document.getElementById('first_name');
-                    // const lastNameInput = document.getElementById('last_name');
-                    // const phoneInput = document.getElementById('phone');
-                    // const subjectInput = document.getElementById('subject');
-                    // const descriptionInput = document.getElementById('description');
-                    // const priorityInput = document.getElementById('priority');
-                    // const fileInput = document.getElementById('file');
-
-                    // emailInput.addEventListener('blur', () => {
-                    // const email = emailInput.value;
-                    // fetch(`/check-email?email=${email}`)
-                    //     .then(response => response.json())
-                    //     .then(data => {
-                    //     if (data.exists) {
-                    //         nameInput.disabled = true;
-                    //         lastNameInput.disabled = true;
-                    //         phoneInput.disabled = true;
-                    //     } else {
-                    //         nameInput.disabled = false;
-                    //         lastNameInput.disabled = false;
-                    //         phoneInput.disabled = false;
-                    //     }
-                    //     })
-                    // });
-
-                    // Get references to the relevant DOM elements
-                        </script>
                     <script>
 
-                    const emailInput = document.getElementById('email1');
-                    const clientFields = document.getElementById('client-fields');
+                        const emailInput = document.getElementById('email1');
+                        const client<Fields = document.getElementById('client-fields');
 
-                    emailInput.addEventListener('blur', () => {
-                        const email = emailInput.value;
+                        emailInput.addEventListener('blur', () => {
+                            const email = emailInput.value;
 
-                            // Vérifier si l'adresse email est valide
-                        const isValidEmail = validateEmail(email);
+                                // Vérifier si l'adresse email est valide
+                            const isValidEmail = validateEmail(email);
 
-                    // Si l'adresse email est valide, afficher les champs client
-                    if (isValidEmail) {
-                        clientFields.style.display = 'block';
-                    } else {
-                        clientFields.style.display = 'none';
-                    }
-                    });
+                        // Si l'adresse email est valide, afficher les champs client
+                        if (isValidEmail) {
+                            clientFields.style.display = 'block';
+                        } else {
+                            clientFields.style.display = 'none';
+                        }
+                        });
 
-                    function validateEmail(email) {
-                    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    return regex.test(email);
-                    }
-</script>
+                        function validateEmail(email) {
+                        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        return regex.test(email);
+                        }
 
-
-
-
+                    </script>
                 {{-- Ajax --}}
 
+                <!-- le code java script de textarea -->
+                <script>
+                    tinymce.init({
+                        selector: '#description',
+                        height: 500,
+                        plugins: [
+                            'advlist autolink lists link image charmap print preview anchor',
+                            'searchreplace visualblocks code fullscreen',
+                            'insertdatetime media table paste code help wordcount'
+                        ],
+                        toolbar: 'undo redo | formatselect | ' +
+                            'bold italic backcolor | alignleft aligncenter ' +
+                            'alignright alignjustify | bullist numlist outdent indent | ' +
+                            'removeformat | help',
+                        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                    });
+                </script>
 
-    {{-- <script>
-            $(document).ready(function() {
-                $('#select-form').change(function() {
-                    var selectedForm = $(this).val();
-                    $('.formulaire').hide();
-                    $('#'+selectedForm).show();
-                });
-            });
-	</script> --}}
+
+
+
+
+
             <footer class="footer2">
                     <div class="software1">
                         <p>HelpDesk Software</p>

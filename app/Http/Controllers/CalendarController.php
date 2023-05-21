@@ -7,6 +7,8 @@ use App\Models\Day;
 use App\Models\Holiday;
 use Illuminate\Http\Request;
 
+use function Ramsey\Uuid\v1;
+
 class CalendarController extends Controller
 {
 
@@ -17,11 +19,19 @@ class CalendarController extends Controller
     public function testHoraire(){
         return view('dashboard.horaire.test');
     }
-    public function newCalendar(){
-        return view('dashboard.horaire.newCalendar')->with('days', Day::get())
-        ->with('holidays', Holiday::get())
-        ->with('calendars', Calendar::get());
+    // public function newCalendar(){
+    //     return view('dashboard.horaire.newCalendar')->with('days', Day::get())
+    //     ->with('holidays', Holiday::get())
+    //     ->with('calendars', Calendar::get());
+    // }
+
+    public function create(){
+
+        // $agents = new Agent();
+        return view('dashboard.horaire.newCalendar');
+
     }
+
     public function store1(Request $request){
         $request->validate([
             'name'=>'required',
@@ -68,7 +78,7 @@ class CalendarController extends Controller
     $holidays->calendar_id = $calendarId;
     $holidays->save();
 
-    return redirect('/calendar');
+    return to_route('dashboard.calendar')->with('message_ajoute', 'La calendrié a été ajouter avec succès !');
 }
 
     public function consulter($id){
@@ -78,15 +88,21 @@ class CalendarController extends Controller
 
         return view('dashboard.horaire.consulter', compact('calendar', 'days', 'holidays'));
     }
+
+
     public function edit($id){
+
+        // dd($id);
+
         $calendar = Calendar::findOrFail($id);
-        $holiday = Holiday::where('calendar_id', $id)->firstOrFail();
-        $day = Day::where('calendar_id', $id)->firstOrFail();
+        $holiday = Holiday::where('calendar_id', $id)->first();
+        $day = Day::where('calendar_id', $id)->first();
 
         return view('dashboard.horaire.edit')
             ->with('calendar', $calendar)
             ->with('day', $day)
             ->with('holidays', $holiday);
+
     }
 
     public function update(Request $request, $id){
@@ -137,14 +153,14 @@ class CalendarController extends Controller
         }
     }
 
-        return redirect('/calendar')->with('message', 'Modifications enregistrées avec succès !');
+        return redirect('/calendar')->with('message_update', 'Modifications enregistrées avec succès !');
 
     }
 
     public function destroy($id){
 
         Calendar::where('id', $id)->delete();
-        return redirect('/calendar')->with('message', 'Suppresion appliqués avec succès !');
+        return to_route('dashboard.calendar')->with('message_supprime', 'Suppresion appliqués avec succès !');
     }
 
 }

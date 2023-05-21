@@ -11,12 +11,9 @@
                             </div>
                         </div>
                 </div>
-
                 <div>
                     <h3 class="base2">Base de connaissance</h3>
                 </div>
-
-
             </div>
             <footer class="footer2">
 

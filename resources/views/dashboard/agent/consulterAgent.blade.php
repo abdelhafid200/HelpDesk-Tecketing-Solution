@@ -1,3 +1,7 @@
+@extends('dashboard.layout.dashboard')
+
+@section('title', 'Ajouter client')
+@section('content')
 @include('dashboard.horaire.headerTemporer')
 
 
@@ -75,3 +79,5 @@
 
 
 </div>
+
+@endsection

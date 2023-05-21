@@ -13,4 +13,6 @@ class Ticket extends Model
     {
         return $this->belongsTo(Client::class);
     }
+
+    
 }

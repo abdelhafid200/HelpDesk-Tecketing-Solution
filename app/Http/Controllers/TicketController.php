@@ -2,88 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use app\Models\Client;
+use App\Models\Client;
 use App\Models\File;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
-use app\Models\User;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class TicketController extends Controller
 {
 
 
-    // public function store(Request $request){
-
-    //     $client = User::where('email', $request->input('email'))->first();
-
-    //     if(!$client){
-
-    //         $request->validate([
-
-    //                 'email'=>  'required',
-    //                 'first_name' => 'required',
-    //                 'last_name' => 'required',
-    //                 'phone' => 'required'
-
-    //         ]);
-
-    //         $user = new User([
-    //             'email' => $request->input('email'),
-    //             'first_name' => $request->input('first_name'),
-    //             'last_name' => $request->input('last_name'),
-    //             'phone' => $request->input('phone'),
-    //         ]);
-    //         $user->save();
-    //     }
-
-    //         $request->validate([
-
-    //             'subject'=> 'required',
-    //             'priority'=> 'required',
-    //             'description'=> 'required',
-    //             'file' => 'required',
-    //     ]);
-
-
-    //     $clients = new Client();
-    //     $clients->user_id = $user->id;
-    //     $clients->save();
-
-    //     $ticket = new Ticket([
-
-    //         'subject' => $request->input('subject'),
-    //         'content' => $request->input('description'),
-    //         'priorite' => $request->input('priority'),
-    //         'client_id' => $clients->id
-
-    //     ]);
-    //     $ticket->save();
 
 
 
-
-
-    //     $fich = $request->input('file');
-    //     $fich->store('uploads');
-    //     $fich_name = $fich->getClientOriginalName();
-    //     $file_size = $fich->getSize();
-    //     $extension = $fich->getClientOriginalExtension();
-
-    //     $file = new File();
-
-    //     $file->file = $request->input('file');
-    //     $file->name = $fich_name;
-    //     $file->size = $file_size;
-    //     $file->type = $extension;
-    //     $file->ticket_id = $ticket->id;
-
-    //     $file->save();
-
-    //     return redirect()->route('new_ticket');
-
-
-
-    // }
 
 
     public function newTicket(Request $request)
@@ -145,4 +79,88 @@ class TicketController extends Controller
 
 
 
+
+
+
+
+    public function notFound(){
+
+        $ticket = Ticket::first();
+        return view('public.ticket.notfound', compact('ticket'));
+    }
+
+    public function ticket(){
+
+        $ticket = Ticket::first();
+        return view('public.ticket.ticket', compact('ticket'));
+
+    }
+
+
+
+    public function chercher(){
+        return view('public.ticket.chercher');
+    }
+
+    public function search_ticket(Request $request){
+
+        $request->validate([
+            'code' => "required",
+        ]);
+
+        $code = $request->input('code');
+
+        $ticket = Ticket::where('code', $code)->firstOrFail();
+
+        return view('public.ticket.search', compact('ticket'));
+
+        // if ($ticket) {
+        // } else {
+        //     $error = "Ticket $code not found";
+        //     return view('public.ticket.search', compact('error','ticket'));
+        // }
+
+    }
+
+
+    public function show(){
+
+        $user = Auth::user();
+
+        $client = Client::where('user_id', $user->id)->first();
+        $tickets = Ticket::where('client_id', $client->id)->get();
+
+        /**
+         *
+         *  Erreur de Class "app\Models\Client" not found
+         *
+         */
+
+
+
+        // $tickets = Ticket::get();
+        return view('public.ticket.myTicket', compact('tickets'));
+
+    }
+
+    public function response($id){
+
+        $ticket = Ticket::where('id', $id)->first();
+        return view('public.ticket.repond', compact('ticket'));
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 }
+
+
