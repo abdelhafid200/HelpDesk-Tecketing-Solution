@@ -624,6 +624,17 @@ background-color: white;
     overflow: auto; /* Ajout d'un scroll si la fenêtre est trop grande pour l'écran */
     background-color: rgba(0,0,0,0.4); /* Ajout d'un fond semi-transparent pour couvrir le reste de la page */
 }
+.Modal_ticket {
+    display: none; /* Par défaut, la fenêtre est cachée */
+    position: fixed; /* La fenêtre est positionnée de manière fixe */
+    z-index: 1; /* Le z-index place la fenêtre au-dessus de tous les autres éléments */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Ajout d'un scroll si la fenêtre est trop grande pour l'écran */
+    background-color: rgba(0,0,0,0.4); /* Ajout d'un fond semi-transparent pour couvrir le reste de la page */
+}
 
 #add_cancel{
     display: flex;
@@ -695,6 +706,22 @@ background-color: white;
     left: 130px;
     border-radius: 6px;
 }
+.content-modal3{
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding-bottom: 20px;
+    border: 1px solid #888;
+    width: 51%;
+    position: relative;
+    z-index: 1;
+    /* padding-bottom: 32px; */
+    /* height: 101vh; */
+    left: 130px;
+    border-radius: 6px;
+    bottom: 100px;
+    /* overflow: auto; */
+    padding-right: 30px;
+}
 .Modal2{
     display: none; /* Par défaut, la fenêtre est cachée */
     position: fixed; /* La fenêtre est positionnée de manière fixe */
@@ -733,18 +760,55 @@ background-color: white;
 .feed-repond {
 
     display: grid;
-    grid-template-columns: repeat(20,1fr);
-    grid-template-areas: "ticket ticket ticket ticket ticket ticket ticket ticket ticket ticket ticket ticket ticket ticket feed feed  feed feed feed feed";
+    position: relative;
+    grid-template-columns: repeat(30,1fr);
+    grid-template-areas: ". chat chat chat chat chat chat chat chat chat . ticket ticket ticket ticket ticket ticket ticket ticket ticket ticket ticket ticket ticket ticket ticket . feed feed feed";
+}
 
+.conversation{
+    grid-area: chat ;
+    background-color: white;
+
+    border: solid 1.1PX #80808045;
+    margin-left: -77px;
+    padding: 33px 8PX 1PX 9PX;
+    border-radius: 5px;
+    height: 100vh;
+    overflow: auto;
+
+
+}
+.message-conversation{
+    background-color: #eeeeee69;
+    padding: 12px 12px 12px 12px;
+    border: solid 0.1px #857d7d;
+    border-radius: 8px;
 }
 
 .grid-feedback{
     grid-area: feed;
-    padding: 50px;
-    /* background-color: white; */
-    border: solid 0.1PX black;
+    padding: 47px;
+    background-color: white;
+    border: solid 1.1PX #80808045;
     margin-right: -48px;
     border-right: none;
+    border-bottom: none;
+    height: 150vh;
+    padding-top: 5px;
+    border-radius: 4px;
+    height: 100vh;
+    overflow: auto;
+}
+
+.titles-response div{
+    background-color: white;
+    box-shadow: 0px 4px 4px 1px rgba(22,29,37,.05);
+    padding: 2px 30px 2px 30px;
+    border: solid 0.1px #8080805c;
+    border-radius: 9px;
+    margin-left: 103px;
+    position: relative;
+    bottom: 32px;
 }
 
 
@@ -755,13 +819,16 @@ background-color: white;
     padding-top: 21px;
     padding-bottom: 12px;
     padding-right: 33px;
-    margin-left: -20px;
-    margin-right: 0px;
-    margin-top: 0px;
-    margin-bottom: 89PX !important;
-    border: solid 0.1Px white;
-    border-top-color: #000 !important;
+    border: solid 2.1Px white;
+    /* border-top-color: #000 !important; */
+    border: solid 1.1PX #80808045;
     box-shadow: 8px 11px 11px 7px rgba(22,29,37,.05);
+    height: 150vh;
+    margin-left: -35px;
+    margin-right: -34px;
+    border-radius: 8px;
+    height: 100vh;
+    overflow: auto;
 
 }
 .consult-ticket p .para{
@@ -772,14 +839,14 @@ background-color: white;
 
 .my-ticket{
     padding-left: 35px;
-    padding-top: 44px;
-    margin: 20PX AUTO;
+    position: relative;
+    top: 61px;
 }
-.my-ticket span{
+.my-ticket div{
 
     font-weight: bold;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     padding-bottom: 28px;
     font-size: 23px;
     color: #13364f;
@@ -807,11 +874,11 @@ background-color: white;
 }
 
 .title-feedback{
-    font-size: medium;
-    margin-left: -11px;
+    /* font-size: medium; */
+    margin-left: 31px;
     font-weight: 700;
     color: #13364f;
-    letter-spacing: 2px;
+    /* letter-spacing: 2px; */
 }
 .icone-feedback{
     width: 32px;
@@ -827,11 +894,11 @@ background-color: white;
 .search-article{
     background-color: #12344d;
     position: relative;
-    bottom: 84px;
-    padding: 1px 31px 10px 18px;
+    bottom: 4px;
+    padding: 35px 46px 51px 21px;
     margin-right: -48px;
-    margin-left: -100px;
-    border-left: solid white 0.1px
+    margin-left: -308px;
+    border-left: solid white 0.1px;
 }
 #search1{
     width: 474px;
@@ -897,10 +964,10 @@ padding-left: 6px;
     border: 0.1px #80808042 solid;
     box-shadow: 8px 11px 11px 7px rgba(22,29,37,.05);
     position: relative;
-    bottom: 45px;
     min-height: 100vh;
-    left: 12p;
-    right: 79px;
+    left: 100px;
+    /* right: 79px; */
+    width: 250vh;
 }
 .consult-article h5{
     font-size: x-large;
@@ -970,7 +1037,7 @@ padding-left: 6px;
     border-top-right-radius: 5px;
 }
 .naviger-all{
-    border: 2px solid #00a7ffa8;;
+    border: 2px solid gray;
     /* border: 2px solid rgb(27, 236, 156); */
     padding-top: 23px;
 }
@@ -983,7 +1050,7 @@ padding-left: 6px;
     box-shadow: 0px 0px 5px #e2e2e2;
     border-radius: 5px;
     position: relative;
-    bottom: 69px;
+    top: 60px;
 }
 .article-vide{
     font-size: 20px;
@@ -1019,12 +1086,32 @@ padding-left: 6px;
     text-decoration: underline;
 }
 .all-liste{
-        background-color: white;
-        padding: 29px 66px 35px 50px;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        position: relative;
-        bottom: 40px;
+    background-color: white;
+    padding: 29px 66px 35px 50px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    top: 40px;
+    box-shadow: 13PX 12PX 16PX 9PX #80808033;
+    border-radius: 9PX;
+    overflow: auto;
+}
+#result-search{
+    position: relative;
+    bottom: 20p;
+    top: 100px;
+}
+
+.search-ticket{
+    background-color: #12344d;
+    position: relative;
+    bottom: 24px;
+    padding: 35px 46px 51px 21px;
+    margin-right: -48px;
+    margin-left: -308px;
+    border-left: solid white 0.1px;
+    justify-content: end;
+    display: flex;
 }
 

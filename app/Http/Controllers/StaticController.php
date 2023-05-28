@@ -21,5 +21,8 @@ class StaticController extends Controller
     public function new_ticket(){
         return view('public.new_ticket');
     }
+    public function navbar(){
+        return view('public.navbar');
+    }
 
 }

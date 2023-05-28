@@ -175,6 +175,7 @@ Route::middleware('setup.need')->group(function () {
     Route::get('home',[StaticController::class,'home'])->name("home.home");
     Route::get('knowldege_base',[StaticController::class,'knowldege'])->name("home.base");
     Route::get('new_ticket',[StaticController::class,'new_ticket'])->name("new_ticket");
+    Route::get('navbar',[StaticController::class,'navbar'])->name("navbar");
 
     Route::post('check_email', [TicketController::class, 'newTicket'])->name('newTicket');
     Route::post('/new_ticket', [TicketController::class, 'newTicket'])->name('newTicket');
@@ -239,14 +240,16 @@ Route::get('/consultAgent',[AgentController::class,'consultAgent'])->name('consu
                 Route::match(['get', 'post'], 'search', [TicketController::class, 'search_ticket'])->name('search_ticket');
                 Route::get('NotFound', [TicketController::class, 'notfound'])->name('notfound');
 
-                Route::get('myticket', [TicketController::class, 'show'])->name('show');
-                Route::get('response/{id}', [TicketController::class, 'response'])->name('response');
+                Route::get('myticket', [TicketController::class, 'show1'])->name('show1');
+                Route::get('responses/{id}', [TicketController::class, 'response'])->name('response');
 
-                Route::get('response', [FeedbackController::class, 'feedback'])->name('feedback');
-                Route::post('response', [FeedbackController::class, 'store'])->name('store');
+                Route::get('feedback', [FeedbackController::class, 'feedback'])->name('feedback');
+                Route::post('feedback', [FeedbackController::class, 'feed'])->name('feed');
 
-                Route::get('response', [MessageController::class, 'index'])->name('index');
-                Route::POST('response', [MessageController::class, 'store'])->name('store');
+                // Route::get('response', [MessageController::class, 'index'])->name('index');
+                Route::POST('response/{id}', [MessageController::class, 'store'])->name('store');
+
+                Route::get('destroy/{id_message}', [MessageController::class, 'destroy'])->name('destroy');
 
                 Route::get('chercher', [TicketController::class, 'chercher'])->name('chercher');
 
@@ -270,6 +273,7 @@ Route::get('/consultAgent',[AgentController::class,'consultAgent'])->name('consu
 
             // language
             Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => '\App\Http\Controllers\LanguagesController@switchLang']);
+
 
 
 

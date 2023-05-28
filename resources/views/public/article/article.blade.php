@@ -3,8 +3,8 @@
 @section('content')
 
     <div>
-        <div class="d-flex justify-content-end">
-            <a href="#" class="btn btn-sm btn-primary" onclick="print({{$article->id}})">
+        <div class="d-flex justify-content-end" >
+            <a href="#" class="btn btn-sm btn-primary" onclick="print({{$article->id}})" style="position: relative; top: 42px;">
                 <i class="fas fa-print fa-2x"></i>
             </a>
         </div>

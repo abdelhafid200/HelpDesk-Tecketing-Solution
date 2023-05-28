@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Message;
 use App\Models\File;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
@@ -123,7 +124,7 @@ class TicketController extends Controller
     }
 
 
-    public function show(){
+    public function show1(){
 
         $user = Auth::user();
 
@@ -139,14 +140,18 @@ class TicketController extends Controller
 
 
         // $tickets = Ticket::get();
-        return view('public.ticket.myTicket', compact('tickets'));
+        return view('public.ticket.myTicket', compact('tickets', 'client'));
 
     }
 
     public function response($id){
 
+        // $ticket = Ticket::where('client_id', $client->id)->first();
+        $user = Auth::user();
+        $client = Client::where('user_id', $user->id)->first();
         $ticket = Ticket::where('id', $id)->first();
-        return view('public.ticket.repond', compact('ticket'));
+        $messages = Message::where('ticket_id',$ticket->id)->get();
+        return view('public.ticket.repond', compact('ticket', 'client', 'messages'));
 
     }
 

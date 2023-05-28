@@ -20,12 +20,12 @@
     @vite('resources/sass/app.scss')
 
 </head>
+{{--
 <body class="body">
     <!-- le navbar -->
     <div id="myHeader" class="header">
         <nav class="navbar">
             <div>
-                {{-- <img src="help-desk.png" alt="" class="logo1"> --}}
                 <img src="{{ asset('images/help-desk.png') }}" alt="logo help desk" class="logo1">
             </div>
             <div>
@@ -35,22 +35,6 @@
                 <a href="{{url('/new_ticket')}}" class="titre1" id="submite_ticket">soumettre un ticket</a>
                 <a href="{{url('/login')}}" class="titre1" id="identifier">S'identifier </a>
                 <a href="{{url('/sign-up')}}" class="titre1" id="creer_compte">Créer compte</a>
-                {{-- <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle text-sm text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        <span class="fi fi-{{ Config::get('languages')[App::getLocale()]['flag-icon'] }}"></span>
-                        {{ Config::get('languages')[App::getLocale()]['display'] }}
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        @foreach (Config::get('languages') as $lang => $language)
-                        @if ($lang != App::getLocale())
-                        <a class="dropdown-item" href="{{ Route('lang.switch', $lang) }}">
-                            <span class="fi fi-{{ $language['flag-icon'] }}"></span>
-                            {{ $language['display'] }}
-                        </a>
-                        @endif
-                        @endforeach
-                    </div>
-                </li> --}}
 
 
             </div>
@@ -71,4 +55,73 @@
             header.classList.remove("sticky");
         }
         }
-    </script>
+    </script> --}}
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="
+position: fixed;
+top: 0;
+width: 100%;
+z-index: 3;
+">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">HelpDesk</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{url('/')}}">Accueil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Soumettre un ticket</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('login')}}">S'identifier</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('sign-up')}}">S'inscrire</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Solution
+                </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="{{url('tickets/chercher')}}">cherche ticket</a></li>
+                <li><a class="dropdown-item" href="{{url('tickets/search-articles')}}">Cherche article</a></li>
+                <li><a class="dropdown-item" href="{{ route('helpdesk.section') }}">centre d'assistance</a></li>
+            </ul>
+            </li>
+
+            <li class="nav-item" style="
+            position: relative;
+            left: 555px;">
+
+                <a class="nav-link" href="#">
+                    <div>
+                        Logo HelpDesk
+                    </div>
+                </a>
+            </li>
+
+        </ul>
+        </div>
+    </div>
+    </nav>
+
+    {{-- <script>
+        window.onscroll = function() {
+            myFunction()
+        };
+        var header = document.getElementById("myHeader");
+        var sticky = header.offsetTop;
+        function myFunction() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+        } else {
+            header.classList.remove("sticky");
+        }
+        }
+    </script> --}}

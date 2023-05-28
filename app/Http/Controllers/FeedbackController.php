@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Message;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
 use App\Models\Ticket;
@@ -20,6 +21,7 @@ class FeedbackController extends Controller
         $user = Auth::user();
         $client = Client::where('user_id', $user->id)->first();
         $ticket = Ticket::where('client_id', $client->id)->first();
+        $messages = Message::where('ticket_id',$ticket->id)->get();
 
         if (!$ticket) {
             // Gérer le cas où aucun ticket n'est trouvé pour le client
@@ -27,11 +29,11 @@ class FeedbackController extends Controller
             return redirect()->back()->with('error', 'Aucun ticket trouvé.');
         }
 
-        return view('public.ticket.repond', compact('ticket'));
+        return view('public.ticket.repond', compact('ticket', 'client', 'messages'));
 
     }
 
-    public function store(Request $request){
+    public function feed(Request $request){
 
         $request->validate([
             'feedback' => 'required'

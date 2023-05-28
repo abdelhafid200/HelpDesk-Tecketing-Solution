@@ -4,7 +4,7 @@
 
 <div class="consult-assistance">
     <div>
-        <h3 class="assistance-title bg-info">Consultation d'assistance</h3>
+        <h4 class="assistance-title bg-secondary text-white">Consultation d'assistance</h4>
     </div>
     <div class="naviger-all row d-flex justify-content-center">
         @foreach ($sections as $section)

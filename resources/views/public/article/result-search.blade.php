@@ -22,10 +22,10 @@
         </form>
     </div>
     <div class="d-flex">
-        <h3 class="text-light">Base de connaissance</h3>
+        <h3 class="text-light">Base de connaissance dkfk</h3>
     </div>
 </div>
-<div class="d-flex row mb-2 justify-content-center">
+<div class="d-flex row mb-2 justify-content-center" id="result-search">
     @foreach ($articles as $article)
     <div class="articles-all  col-md-5 me-2 mb-2">
 

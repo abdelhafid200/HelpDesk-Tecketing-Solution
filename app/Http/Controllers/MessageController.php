@@ -18,10 +18,12 @@ class MessageController extends Controller
 
     public function index(){
 
+
         $user = Auth::user();
         $client = Client::where('user_id', $user->id)->first();
         $ticket = Ticket::where('client_id', $client->id)->first();
-        return view('public.ticket.repond', compact('ticket'));
+        $messages = Message::where('ticket_id',$ticket->id)->get();
+        return view('public.ticket.repond', compact('ticket','client', 'messages'));
     }
 
     public function store(Request $request){
@@ -33,7 +35,13 @@ class MessageController extends Controller
 
         $user = User::with('client')->find(Auth::id());
         $client = $user->client;
-        $ticket = Ticket::where('client_id', $client->id)->first();
+
+        // $ticket = Ticket::where('client_id', $client->id)->first();
+        $ticketId = $request->route('id');
+        // dd($ticketId);
+        $ticket = Ticket::where('id', $ticketId)
+        ->where('client_id', $client->id)
+        ->first();
 
         $message = new Message();
         $message->content = $request->input('response');
@@ -42,7 +50,18 @@ class MessageController extends Controller
 
         $message->save();
 
-        return redirect()->route('tickets.index')->with('response', 'Le response a été envoyé avec succès.');
+        return redirect()->route('tickets.response', ['id'=>$ticket->id]);
+    }
+
+    public function destroy($id){
+
+
+        $messages = Message::findOrFail($id);
+        $messages->delete();
+
+            // dd($messages);
+
+        return to_route('tickets.response', ['id' => $messages->ticket_id])->with('response_supprimé', 'le messafe à été supprimé avec succée');
 
     }
 

@@ -1,4 +1,4 @@
-
+{{--
 
 
 
@@ -10,10 +10,7 @@ position: fixed;
 top: 118px;
 left: 0px;
 z-index: 1;">
-    {{-- <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-        <span class="link-sidebar text-white">Sidebar</span>
-    </a> --}}
+
     <hr>
     <ul class="nav nav-pills flex-column mb-auto" style="margin-left: -14px;">
         <li class="nav-item pb-2">
@@ -94,4 +91,4 @@ z-index: 1;">
 
 </div>
 
-
+ --}}
