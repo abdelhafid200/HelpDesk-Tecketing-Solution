@@ -2,15 +2,33 @@
 
 @section('content')
 
-<div class="consult-assistance">
-    <div>
-        <h4 class="assistance-title bg-secondary text-white">Consultation d'assistance</h4>
+
+<div class="espace-article">
+    <div class="d-flex justify-content-center">
+        <h2 class="text-light fw-bold">Naviguer les Section et ses Catégorie</h2>
     </div>
+</div>
+
+    <div class="d-flex justify-content-between position-relative bottom-44 pt-4" style="bottom: 45VH;">
+        <div class="">
+            <h4 class="fw-bold">Consultation d'assistance</h4>
+        </div>
+        <div class="" >
+            <a class="btn btn-info" href="#">
+                Accueil
+            </a>
+        </div>
+    </div>
+
+<div class="consult-assistance">
+    {{-- <div>
+        <h4 class="assistance-title bg-secondary text-white">Consultation d'assistance</h4>
+    </div> --}}
     <div class="naviger-all row d-flex justify-content-center">
         @foreach ($sections as $section)
-            <div class="naviger-section col-md-3 m-3 mb-5">
-                <h4>{{$section->nom}} </h4>
-                <span style="font-weight:bold;">Les Catégorie : </span>
+            <div class="naviger-section m-3 mb-5">
+                <h4 class="d-flex justify-content-center">{{$section->nom}} </h4>
+                <span style="font-weight:bold;" class="d-flex justify-content-center">Les Catégorie : </span>
                 @foreach ($section->category as $cat)
                     <div>
                         <ul>

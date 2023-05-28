@@ -22,7 +22,7 @@
         </form>
     </div>
     <div class="d-flex">
-        <h3 class="text-light">Base de connaissance dkfk</h3>
+        <h3 class="text-light pb-2 mt-5">Base de connaissance dkfk</h3>
     </div>
 </div>
 <div class="d-flex row mb-2 justify-content-center" id="result-search">
@@ -31,7 +31,7 @@
 
         <div>
             <h5> {{$article->title}} </h5>
-            <small>categorie : <span>{{$article->category->nom}} </span> </small>
+            <small>categorie kfd : <span>{{$article->category->nom}} </span> </small>
             <p class="article-summary">{{ substr($article->content, 0, strpos($article->content, ' ', 100)) . '...' }}</p>
             <small class="date">date de creation : <span>{{$article->created_at}} </span> </small>
             <div class="row d-flex justify-content-center" >

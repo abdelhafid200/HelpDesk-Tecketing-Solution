@@ -2,7 +2,25 @@
 
 @section('content')
 
-    <div>
+
+    <div class="espace-article">
+        <div class="d-flex justify-content-center">
+            <h2 class="text-light fw-bold">Espace Article</h2>
+        </div>
+    </div>
+
+    <div class="article-retour d-flex justify-content-between pb-4 pt-5">
+        <div>
+            <h3 class="ps-4"> <span> Artcile :</span> <span>{{$article->title}}</span> </h3>
+        </div>
+        <div>
+            <a class="btn btn-secondary" href="  {{route('tickets.search')}}">
+                Retour
+            </a>
+        </div>
+    </div>
+
+    <div class="print-article">
         <div class="d-flex justify-content-end" >
             <a href="#" class="btn btn-sm btn-primary" onclick="print({{$article->id}})" style="position: relative; top: 42px;">
                 <i class="fas fa-print fa-2x"></i>

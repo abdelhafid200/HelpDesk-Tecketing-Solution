@@ -28,10 +28,23 @@
     </div> --}}
 
 
+    {{-- <div class="espace-article">
+        <div class="d-flex justify-content-center">
+            <h2 class="text-light fw-bold">Espace Article</h2>
+        </div>
+    </div> --}}
+
+    <div class="d-flex justify-content-end pt-2">
+        {{-- <div> --}}
+            <a class="btn btn-secondary" href="  {{route('helpdesk.section')}}">
+                Retour
+            </a>
+        {{-- </div> --}}
+    </div>
 
     <div class="all-liste">
         <div class="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
-            <h4>Liste des articles de Categorie <span class="text-primary">{{ $category->nom }}</span>  </h4>
+            <h4>Liste des articles de Categorie: <span class="text-primary">{{ $category->nom }}</span>  </h4>
         </div>
 
         @if ($articles->count()>0)

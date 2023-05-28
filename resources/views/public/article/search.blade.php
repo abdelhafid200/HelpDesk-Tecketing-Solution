@@ -3,19 +3,6 @@
 @section('content')
 
 
-{{-- <div class="solution">
-    <div>
-            <div class="mb-3" id="icone_bare1">
-                <input type="text"  id="search" placeholder="entrez ici le terme de recherche..." aria-label="Recherche" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="icone_search"><i class="fa fa-search"></i></button>
-                </div>
-            </div>
-    </div>
-    <div>
-        <h3 class="base2">Base de connaissance</h3>
-    </div>
-</div> --}}
 <div class="search-article">
     <div>
         <form action="{{ route('tickets.show') }}" method="post">
@@ -35,11 +22,11 @@
         </form>
     </div>
     <div class="d-flex">
-        <h3 class="text-light">Base de connaissance</h3>
+        <h3 class="text-light pb-2 mt-5">Base de connaissance fff</h3>
     </div>
 </div>
 
-    <div class="d-flex row mb-2 justify-content-center">
+    <div class="consult-articel d-flex row mb-2 justify-content-center">
         @foreach ($articles as $article)
         <div class="articles-all  col-md-5 me-2 mb-2">
 
@@ -50,11 +37,10 @@
                 <small class="date">date de creation : <span>{{$article->created_at}} </span> </small>
                 <div class="row d-flex justify-content-center" >
                     <a href="{{route('tickets.article',['id'=>$article->id])}}" type="submit" class="btn btn-info col-md-10">
-                    {{-- <a href="{{ route('helpdesk.show-article', ['category_id' => $category->id, 'article_id' => $article->id]) }}" type="submit" class="btn btn-info col-md-10"> --}}
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
                                 <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
                             </svg>
-                            Consult l'article
+                            <span>Consult l'article</span>
                     </a>
                 </div>
             </div>

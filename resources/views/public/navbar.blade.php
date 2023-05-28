@@ -28,12 +28,23 @@
         <li class="nav-item">
             <a class="nav-link" href="#">Soumettre un ticket</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{url('login')}}">S'identifier</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{url('sign-up')}}">S'inscrire</a>
-        </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('login')}}">S'identifier</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('sign-up')}}">S'inscrirehhdh</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Mes ticket</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Déconnecet</a>
+            </li>
+
+
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Solution
